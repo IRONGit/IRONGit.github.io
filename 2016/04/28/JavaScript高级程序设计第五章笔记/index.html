@@ -80,15 +80,40 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IRONGit">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 高级程序设计第五章笔记">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/JavaScript高级程序设计第五章笔记/index.html">
 <meta property="og:site_name" content="IRONGit">
-<meta property="og:description">
+<meta property="og:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
+<meta property="og:updated_time" content="2016-04-29T08:47:51.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IRONGit">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript 高级程序设计第五章笔记">
+<meta name="twitter:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
 
 
 
@@ -106,7 +131,7 @@
   };
 </script>
 
-  <title> IRONGit </title>
+  <title> JavaScript 高级程序设计第五章笔记 | IRONGit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -127,9 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -206,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -228,144 +251,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/04/29/JavaScript高级程序设计第三章笔记/" itemprop="url">
-                  JavaScript高级程序设计第三章笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
-              2016-04-29
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型</p>
-<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String</p>
-<p>Number类型可以表示所有数值</p>
-<p>最大值:Number.MAX_VALUE</p>
-<p>最小值:Number.MIN_VALUE</p>
-<p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
-<pre><code>console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-console.log(Number.MIN_VALUE);//5e-324
-var result=Number.MAX_VALUE+Number.MAX_VALUE;
-console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity
-</code></pre><p>可以使用isFinite()函数确定一个数是不是有穷的</p>
-<p>另外,ES6还引入了两个常量</p>
-<p>Number.MIN_SAFE_INTEGER</p>
-<p>Number.MAX_SAFE_INTEGER</p>
-<p>分别表示-2^53+1和2^53-1</p>
-<p>JavaScript内置的最大的整数是2的53次方</p>
-<p>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
-<pre><code>console.log(Number.MIN_SAFE_INTEGER);
-console.log(Number.MAX_SAFE_INTEGER);
-</code></pre><h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型:"></a>复杂数据类型:</h2><p>Object</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</p>
-<p>在函数体内可以通过arguments对象来访问参数数组</p>
-<p>arguments的值永远与对应命名参数的值保持同步</p>
-<pre><code>function doAdd(num1,num2){
-    arguments[1]=10;//arguments[1]被赋值为10,同时num2的值变为10
-    console.log(arguments[0]+num2);
-}
-doAdd(1,2);//11
-</code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<p>function doAdd(num1){<br>    arguments[1]=10;<br>    console.log(arguments[0]+arguments[1]);<br>}<br>doAdd(2);//12</p>
-<p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
-<p>但是可以通过如下方式模仿方法的重载</p>
-<pre><code>function doAdd(){
-    if(arguments.length==1){
-        console.log(&quot;只有一个参数&quot;);
-    }else if(arguments.length==2){
-        console.log(&quot;有两个参数&quot;);
-    }else{
-        console.log(&quot;不知道有多少个参数&quot;);
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/28/JavaScript高级程序设计第五章笔记/" itemprop="url">
-                  JavaScript 高级程序设计第五章笔记
-                </a>
+                JavaScript 高级程序设计第五章笔记
               
             
           </h1>
@@ -404,9 +290,7 @@ doAdd(1,2);//11
       
 
       
-        
-          
-            <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+        <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
 </code></pre><p>例如:</p>
 <pre><code>var pattern1=/at/g
 </code></pre><p>匹配字符串中所有”at”的实例</p>
@@ -469,16 +353,18 @@ console.log(matches[0]);//bat
 </code></pre><p>另一个方法是test(),接收一个字符串参数<br>如果只想知道目标字符串和模式是否匹配而不需要知道其他细节的情况下,一般使用这个方法</p>
 <p>RegExp实例继承的toLocalString()方法和toString()方法都会返回正则表达式的字面量</p>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
@@ -486,19 +372,32 @@ console.log(matches[0]);//bat
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/29/JavaScript高级程序设计第三章笔记/" rel="prev" title="JavaScript高级程序设计第三章笔记">
+                JavaScript高级程序设计第三章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -506,6 +405,10 @@ console.log(matches[0]);//bat
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -525,8 +428,17 @@ console.log(matches[0]);//bat
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -564,6 +476,17 @@ console.log(matches[0]);//bat
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-两种方式的对比"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RegExp实例属性"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-RegExp实例方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.RegExp实例方法</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -659,6 +582,10 @@ console.log(matches[0]);//bat
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
