@@ -166,7 +166,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -176,7 +176,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -242,7 +242,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
               2016-04-29
             </time>
@@ -273,40 +273,48 @@
         
           
             <p>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型</p>
-<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String<br>Number类型可以表示所有数值<br>最大值:Number.MAX_VALUE<br>最小值:Number.MIN_VALUE</p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String</p>
+<p>Number类型可以表示所有数值</p>
+<p>最大值:Number.MAX_VALUE</p>
+<p>最小值:Number.MIN_VALUE</p>
 <p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(Number.MAX_VALUE);</span><br><span class="line">console.log(Number.MIN_VALUE);</span><br><span class="line">var result=Number.MAX_VALUE+Number.MAX_VALUE</span><br><span class="line">console.log(<span class="string">"Number.MAX_VALUE+Number.MAX_VALUE:   "</span>+result);</span><br></pre></td></tr></table></figure>
-<p>可以使用isFinite()函数确定一个数是不是有穷的</p>
-<p>另外,ES6还引入了两个常量<br>Number.MIN_SAFE_INTEGER<br>Number.MAX_SAFE_INTEGER<br>分别表示-2^53+1,2^53-1</p>
-<p>JavaScript内置的最大的整数是2的53次方<br>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
+<pre><code>console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+console.log(Number.MIN_VALUE);//5e-324
+var result=Number.MAX_VALUE+Number.MAX_VALUE;
+console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity
+</code></pre><p>可以使用isFinite()函数确定一个数是不是有穷的</p>
+<p>另外,ES6还引入了两个常量</p>
+<p>Number.MIN_SAFE_INTEGER</p>
+<p>Number.MAX_SAFE_INTEGER</p>
+<p>分别表示-2^53+1和2^53-1</p>
+<p>JavaScript内置的最大的整数是2的53次方</p>
+<p>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
 <pre><code>console.log(Number.MIN_SAFE_INTEGER);
-console.log(Number.MAX_SAFE_INTEGER);    
+console.log(Number.MAX_SAFE_INTEGER);
 </code></pre><h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型:"></a>复杂数据类型:</h2><p>Object</p>
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</p>
 <p>在函数体内可以通过arguments对象来访问参数数组</p>
 <p>arguments的值永远与对应命名参数的值保持同步</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="keyword">do</span>Add(num1,num2)&#123;</span><br><span class="line">	arguments[1]=10;//num2的值变为10</span><br><span class="line">	console.log(arguments[0]+num2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">do</span>Add(1,2);//11</span><br></pre></td></tr></table></figure>
-<p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<pre><code class="bash"><span class="keyword">function</span> <span class="keyword">do</span>Add(num1){
-    arguments[1]=10;
-    console.log(arguments[0]+arguments[1]);
+<pre><code>function doAdd(num1,num2){
+    arguments[1]=10;//arguments[1]被赋值为10,同时num2的值变为10
+    console.log(arguments[0]+num2);
 }
-<span class="keyword">do</span>Add(2);//12
-即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数
-</code></pre>
+doAdd(1,2);//11
+</code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
+<p>function doAdd(num1){<br>    arguments[1]=10;<br>    console.log(arguments[0]+arguments[1]);<br>}<br>doAdd(2);//12</p>
+<p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
 <h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
 <p>但是可以通过如下方式模仿方法的重载</p>
-<pre><code class="bash"><span class="keyword">function</span> <span class="function"><span class="title">doAdd</span></span>(){
-    <span class="keyword">if</span>(arguments.length==1){
-        console.log(<span class="string">"只有一个参数"</span>);
-    }<span class="keyword">else</span> <span class="keyword">if</span>(arguments.length==2){
-        console.log(<span class="string">"有两个参数"</span>);
-    }<span class="keyword">else</span>{
-        console.log(<span class="string">"不知道有多少个参数"</span>);
+<pre><code>function doAdd(){
+    if(arguments.length==1){
+        console.log(&quot;只有一个参数&quot;);
+    }else if(arguments.length==2){
+        console.log(&quot;有两个参数&quot;);
+    }else{
+        console.log(&quot;不知道有多少个参数&quot;);
     }
 }
 </code></pre>
-
           
         
       
@@ -368,7 +376,7 @@ console.log(Number.MAX_SAFE_INTEGER);
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
               2016-04-28
             </time>
@@ -398,11 +406,69 @@ console.log(Number.MAX_SAFE_INTEGER);
       
         
           
-            <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression=/pattern/flags
-</code></pre><p>例如:<br>        var pattern1=/at/g<br>匹配字符串中所有”at”的实例</p>
-<p>每个正则表达式都可以带有一个或多个flags<br>g:表示全局(global)模式<br>i:表示不区分大小写(case-insensitive)模式<br>m:表示多行模式(multiline)模式</p>
+            <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+</code></pre><p>例如:</p>
+<pre><code>var pattern1=/at/g
+</code></pre><p>匹配字符串中所有”at”的实例</p>
+<p>每个正则表达式都可以带有一个或多个flags</p>
+<p>g:表示全局(global)模式</p>
+<p>i:表示不区分大小写(case-insensitive)模式</p>
+<p>m:表示多行模式(multiline)模式</p>
 <h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
-</code></pre>
+</code></pre><h3 id="3-两种方式的对比"><a href="#3-两种方式的对比" class="headerlink" title="3.两种方式的对比"></a>3.两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
+<p>在下面第一个循环中,只为/cat/创建了一个实例,所以在循环中再次调用test()会失败<br>,因为在第一次调用test()之后,找到了”cat”,第二次调用就会从索引为3的字符开始,<br>所以找不到</p>
+<p>但是在ES5中,使用正则表达式字面量和直接调用RegExp一样,每次都创建新的RegExp实例</p>
+<pre><code>    var re=null,i;
+for(i=0;i&lt;10;i++){
+    re=/cat/g;
+    console.log(re.test(&quot;catestrophe&quot;));
+}
+
+for(i=0;i&lt;10;i++){
+    re=new RegExp(&quot;cat&quot;,g);
+    console.log(re.test(&quot;catestrophe&quot;));
+}
+</code></pre><h3 id="4-RegExp实例属性"><a href="#4-RegExp实例属性" class="headerlink" title="4.RegExp实例属性"></a>4.RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
+<p>2.ignoreCase</p>
+<p>3.lastIndex</p>
+<p>4.multiline</p>
+<p>5.source</p>
+<p>其中lastIndex表示开始搜索下一个匹配项的字符位置</p>
+<p>source返回的是正则表达式的字面量形式</p>
+<h3 id="5-RegExp实例方法"><a href="#5-RegExp实例方法" class="headerlink" title="5.RegExp实例方法"></a>5.RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
+<pre><code>var text=&quot;mom and dad and baby&quot;;
+var pattern=/mom (and dad (and baby)?)?/gi;
+
+var matches=pattern.exec(text);
+console.log(matches.index);//0
+console.log(matches.input);//mom and dad and baby
+console.log(matches[0]);//mom and dad and baby
+console.log(matches[1]);//and dad and baby
+console.log(matches[2]);//and baby
+</code></pre><p>对exec()方法而言,如果在模式中设置了全局标志,在同一个字符串中调用多次会在字符串中继续查找新的匹配项<br>如果不设置,则每次调用始终返回第一个匹配项的信息</p>
+<pre><code>var text=&quot;cat,bat,sat,fat&quot;;
+var pattern1=/.at/;
+var matches=pattern1.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+matches=pattern1.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+var pattern2=/.at/g;
+
+
+var matches=pattern2.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+matches=pattern2.exec(text);
+console.log(matches.index);//4
+console.log(matches[0]);//bat
+</code></pre><p>另一个方法是test(),接收一个字符串参数<br>如果只想知道目标字符串和模式是否匹配而不需要知道其他细节的情况下,一般使用这个方法</p>
+<p>RegExp实例继承的toLocalString()方法和toString()方法都会返回正则表达式的字面量</p>
+
           
         
       
@@ -464,7 +530,7 @@ console.log(Number.MAX_SAFE_INTEGER);
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-27T23:26:39+08:00" content="2016-04-27">
               2016-04-27
             </time>
@@ -557,7 +623,7 @@ console.log(Number.MAX_SAFE_INTEGER);
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-27T23:14:50+08:00" content="2016-04-27">
               2016-04-27
             </time>
@@ -666,7 +732,7 @@ console.log(Number.MAX_SAFE_INTEGER);
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -715,7 +781,7 @@ console.log(Number.MAX_SAFE_INTEGER);
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

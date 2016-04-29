@@ -80,25 +80,40 @@
 
 
 
-<meta name="description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
-例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
-每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
-2.使用Re">
+<meta name="description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 高级程序设计第五章笔记">
 <meta property="og:url" content="http://yoursite.com/2016/04/28/JavaScript-高级程序设计-笔记/index.html">
 <meta property="og:site_name" content="IRONGit">
-<meta property="og:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
-例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
-每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
-2.使用Re">
-<meta property="og:updated_time" content="2016-04-29T07:54:00.400Z">
+<meta property="og:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
+<meta property="og:updated_time" content="2016-04-29T08:45:14.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 高级程序设计第五章笔记">
-<meta name="twitter:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
-例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
-每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
-2.使用Re">
+<meta name="twitter:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression= / pattern / flags;
+例如:
+var pattern1=/at/g
+匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flags
+g:表示全局(global)模式
+i:表示不区分大小写(case-insensitive)模式
+m:表示多行模式(multiline)模式
+2.使用">
 
 
 
@@ -174,7 +189,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -184,7 +199,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -247,7 +262,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
               2016-04-28
             </time>
@@ -275,11 +290,69 @@
       
 
       
-        <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression=/pattern/flags
-</code></pre><p>例如:<br>        var pattern1=/at/g<br>匹配字符串中所有”at”的实例</p>
-<p>每个正则表达式都可以带有一个或多个flags<br>g:表示全局(global)模式<br>i:表示不区分大小写(case-insensitive)模式<br>m:表示多行模式(multiline)模式</p>
+        <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+</code></pre><p>例如:</p>
+<pre><code>var pattern1=/at/g
+</code></pre><p>匹配字符串中所有”at”的实例</p>
+<p>每个正则表达式都可以带有一个或多个flags</p>
+<p>g:表示全局(global)模式</p>
+<p>i:表示不区分大小写(case-insensitive)模式</p>
+<p>m:表示多行模式(multiline)模式</p>
 <h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
-</code></pre>
+</code></pre><h3 id="3-两种方式的对比"><a href="#3-两种方式的对比" class="headerlink" title="3.两种方式的对比"></a>3.两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
+<p>在下面第一个循环中,只为/cat/创建了一个实例,所以在循环中再次调用test()会失败<br>,因为在第一次调用test()之后,找到了”cat”,第二次调用就会从索引为3的字符开始,<br>所以找不到</p>
+<p>但是在ES5中,使用正则表达式字面量和直接调用RegExp一样,每次都创建新的RegExp实例</p>
+<pre><code>    var re=null,i;
+for(i=0;i&lt;10;i++){
+    re=/cat/g;
+    console.log(re.test(&quot;catestrophe&quot;));
+}
+
+for(i=0;i&lt;10;i++){
+    re=new RegExp(&quot;cat&quot;,g);
+    console.log(re.test(&quot;catestrophe&quot;));
+}
+</code></pre><h3 id="4-RegExp实例属性"><a href="#4-RegExp实例属性" class="headerlink" title="4.RegExp实例属性"></a>4.RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
+<p>2.ignoreCase</p>
+<p>3.lastIndex</p>
+<p>4.multiline</p>
+<p>5.source</p>
+<p>其中lastIndex表示开始搜索下一个匹配项的字符位置</p>
+<p>source返回的是正则表达式的字面量形式</p>
+<h3 id="5-RegExp实例方法"><a href="#5-RegExp实例方法" class="headerlink" title="5.RegExp实例方法"></a>5.RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
+<pre><code>var text=&quot;mom and dad and baby&quot;;
+var pattern=/mom (and dad (and baby)?)?/gi;
+
+var matches=pattern.exec(text);
+console.log(matches.index);//0
+console.log(matches.input);//mom and dad and baby
+console.log(matches[0]);//mom and dad and baby
+console.log(matches[1]);//and dad and baby
+console.log(matches[2]);//and baby
+</code></pre><p>对exec()方法而言,如果在模式中设置了全局标志,在同一个字符串中调用多次会在字符串中继续查找新的匹配项<br>如果不设置,则每次调用始终返回第一个匹配项的信息</p>
+<pre><code>var text=&quot;cat,bat,sat,fat&quot;;
+var pattern1=/.at/;
+var matches=pattern1.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+matches=pattern1.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+var pattern2=/.at/g;
+
+
+var matches=pattern2.exec(text);
+console.log(matches.index);//0
+console.log(matches[0]);//cat
+
+matches=pattern2.exec(text);
+console.log(matches.index);//4
+console.log(matches[0]);//bat
+</code></pre><p>另一个方法是test(),接收一个字符串参数<br>如果只想知道目标字符串和模式是否匹配而不需要知道其他细节的情况下,一般使用这个方法</p>
+<p>RegExp实例继承的toLocalString()方法和toString()方法都会返回正则表达式的字面量</p>
+
       
     </div>
     
@@ -361,10 +434,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -381,7 +454,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -414,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-两种方式的对比"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RegExp实例属性"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-RegExp实例方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.RegExp实例方法</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -441,7 +514,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
