@@ -272,46 +272,40 @@
       
         
           
-            <pre><code>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-</code></pre><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><pre><code>Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE    
-最小值:Number.MIN_VALUE
-
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(Number.MIN_VALUE);</span><br><span class="line">var result=Number.MAX_VALUE+Number.MAX_VALUE</span><br><span class="line">console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);</span><br></pre></td></tr></table></figure>
-<pre><code>可以使用isFinite()函数确定一个数是不是有穷的
-
-
-另外,ES6还引入了两个常量
-Number.MIN_SAFE_INTEGER
-Number.MAX_SAFE_INTEGER
-分别表示-2^53+1,2^53-1
-
-JavaScript内置的最大的整数是2的53次方
-所以这两个常量代表的是安全的最大整数和安全的最小整数
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   console.log(Number.MAX_SAFE_INTEGER);</span><br><span class="line">```		</span><br><span class="line"></span><br><span class="line">## 复杂数据类型</span><br><span class="line">	Object</span><br><span class="line"></span><br><span class="line">## 参数</span><br><span class="line">	ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</span><br><span class="line">		</span><br><span class="line">	在函数体内可以通过arguments对象来访问参数数组</span><br><span class="line"></span><br><span class="line">	arguments的值永远与对应命名参数的值保持同步</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	```function doAdd(num1,num2)&#123;</span><br><span class="line">			arguments[1]=10;//num2的值变为10</span><br><span class="line">			console.log(arguments[0]+num2);</span><br><span class="line">	   &#125;</span><br><span class="line">	   doAdd(1,2);//11</span><br></pre></td></tr></table></figure>
-<pre><code>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的
-
-```    function doAdd(num1){
-        arguments[1]=10;
-        console.log(arguments[0]+arguments[1]);
+            <p>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型</p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String<br>Number类型可以表示所有数值<br>最大值:Number.MAX_VALUE<br>最小值:Number.MIN_VALUE</p>
+<p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(Number.MAX_VALUE);</span><br><span class="line">console.log(Number.MIN_VALUE);</span><br><span class="line">var result=Number.MAX_VALUE+Number.MAX_VALUE</span><br><span class="line">console.log(<span class="string">"Number.MAX_VALUE+Number.MAX_VALUE:   "</span>+result);</span><br></pre></td></tr></table></figure>
+<p>可以使用isFinite()函数确定一个数是不是有穷的</p>
+<p>另外,ES6还引入了两个常量<br>Number.MIN_SAFE_INTEGER<br>Number.MAX_SAFE_INTEGER<br>分别表示-2^53+1,2^53-1</p>
+<p>JavaScript内置的最大的整数是2的53次方<br>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
+<pre><code>console.log(Number.MIN_SAFE_INTEGER);
+console.log(Number.MAX_SAFE_INTEGER);    
+</code></pre><h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型:"></a>复杂数据类型:</h2><p>Object</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</p>
+<p>在函数体内可以通过arguments对象来访问参数数组</p>
+<p>arguments的值永远与对应命名参数的值保持同步</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="keyword">do</span>Add(num1,num2)&#123;</span><br><span class="line">	arguments[1]=10;//num2的值变为10</span><br><span class="line">	console.log(arguments[0]+num2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">do</span>Add(1,2);//11</span><br></pre></td></tr></table></figure>
+<p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
+<pre><code class="bash"><span class="keyword">function</span> <span class="keyword">do</span>Add(num1){
+    arguments[1]=10;
+    console.log(arguments[0]+arguments[1]);
+}
+<span class="keyword">do</span>Add(2);//12
+即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数
+</code></pre>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
+<p>但是可以通过如下方式模仿方法的重载</p>
+<pre><code class="bash"><span class="keyword">function</span> <span class="function"><span class="title">doAdd</span></span>(){
+    <span class="keyword">if</span>(arguments.length==1){
+        console.log(<span class="string">"只有一个参数"</span>);
+    }<span class="keyword">else</span> <span class="keyword">if</span>(arguments.length==2){
+        console.log(<span class="string">"有两个参数"</span>);
+    }<span class="keyword">else</span>{
+        console.log(<span class="string">"不知道有多少个参数"</span>);
     }
-    doAdd(2);//12
-    即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数
-```    
-</code></pre><h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><pre><code>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数
-
-但是可以通过如下方式模仿方法的重载
-</code></pre><p><code>function doAdd(){
-        if(arguments.length==1){
-            console.log(&quot;只有一个参数&quot;);
-        }else if(arguments.length==2){
-            console.log(&quot;有两个参数&quot;);
-        }else{
-            console.log(&quot;不知道有多少个参数&quot;);
-        }
-    }</code>    </p>
+}
+</code></pre>
 
           
         
@@ -362,7 +356,7 @@ JavaScript内置的最大的整数是2的53次方
               
                 
                 <a class="post-title-link" href="/2016/04/28/JavaScript-高级程序设计-笔记/" itemprop="url">
-                  JavaScript 高级程序设计 笔记
+                  JavaScript 高级程序设计第五章笔记
                 </a>
               
             
@@ -404,21 +398,10 @@ JavaScript内置的最大的整数是2的53次方
       
         
           
-            <h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><h3 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h3><pre><code>#### 1.使用字面量形式    
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var expression=/pattern/flags</span><br></pre></td></tr></table></figure>
-
-    例如:
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var pattern1=/at/g</span><br></pre></td></tr></table></figure>
-
-    匹配字符串中所有&quot;at&quot;的实例
-
-    每个正则表达式都可以带有一个或多个flags
-    g:表示全局(global)模式
-    i:表示不区分大小写(case-insensitive)模式
-    m:表示多行模式(multiline)模式
-
-#### 2.使用RegExp构造函数
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var pattern2=new RegExp(<span class="string">"cat"</span>,g);</span><br></pre></td></tr></table></figure>
+            <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression=/pattern/flags
+</code></pre><p>例如:<br>        var pattern1=/at/g<br>匹配字符串中所有”at”的实例</p>
+<p>每个正则表达式都可以带有一个或多个flags<br>g:表示全局(global)模式<br>i:表示不区分大小写(case-insensitive)模式<br>m:表示多行模式(multiline)模式</p>
+<h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
 </code></pre>
           
         

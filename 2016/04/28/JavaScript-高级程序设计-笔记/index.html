@@ -80,46 +80,25 @@
 
 
 
-<meta name="description" content="RegExp类型创建正则表达式的两种方式#### 1.使用字面量形式    
-    1var expression=/pattern/flags
-
-    例如:
-    1var pattern1=/at/g
-
-    匹配字符串中所有&amp;quot;at&amp;quot;的实例
-
-    每个正则表达式都可以带有一个或多个flags
-    g:表示全局(global)模式
-    i:表示不区分大小">
+<meta name="description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
+例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
+2.使用Re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 高级程序设计 笔记">
+<meta property="og:title" content="JavaScript 高级程序设计第五章笔记">
 <meta property="og:url" content="http://yoursite.com/2016/04/28/JavaScript-高级程序设计-笔记/index.html">
 <meta property="og:site_name" content="IRONGit">
-<meta property="og:description" content="RegExp类型创建正则表达式的两种方式#### 1.使用字面量形式    
-    1var expression=/pattern/flags
-
-    例如:
-    1var pattern1=/at/g
-
-    匹配字符串中所有&amp;quot;at&amp;quot;的实例
-
-    每个正则表达式都可以带有一个或多个flags
-    g:表示全局(global)模式
-    i:表示不区分大小">
-<meta property="og:updated_time" content="2016-04-29T02:46:21.428Z">
+<meta property="og:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
+例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
+2.使用Re">
+<meta property="og:updated_time" content="2016-04-29T05:35:29.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript 高级程序设计 笔记">
-<meta name="twitter:description" content="RegExp类型创建正则表达式的两种方式#### 1.使用字面量形式    
-    1var expression=/pattern/flags
-
-    例如:
-    1var pattern1=/at/g
-
-    匹配字符串中所有&amp;quot;at&amp;quot;的实例
-
-    每个正则表达式都可以带有一个或多个flags
-    g:表示全局(global)模式
-    i:表示不区分大小">
+<meta name="twitter:title" content="JavaScript 高级程序设计第五章笔记">
+<meta name="twitter:description" content="RegExp类型创建正则表达式的两种方式1.使用字面量形式var expression=/pattern/flags
+例如:        var pattern1=/at/g匹配字符串中所有”at”的实例
+每个正则表达式都可以带有一个或多个flagsg:表示全局(global)模式i:表示不区分大小写(case-insensitive)模式m:表示多行模式(multiline)模式
+2.使用Re">
 
 
 
@@ -137,7 +116,7 @@
   };
 </script>
 
-  <title> JavaScript 高级程序设计 笔记 | IRONGit </title>
+  <title> JavaScript 高级程序设计第五章笔记 | IRONGit </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -257,7 +236,7 @@
             
             
               
-                JavaScript 高级程序设计 笔记
+                JavaScript 高级程序设计第五章笔记
               
             
           </h1>
@@ -296,21 +275,10 @@
       
 
       
-        <h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><h3 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h3><pre><code>#### 1.使用字面量形式    
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var expression=/pattern/flags</span><br></pre></td></tr></table></figure>
-
-    例如:
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var pattern1=/at/g</span><br></pre></td></tr></table></figure>
-
-    匹配字符串中所有&quot;at&quot;的实例
-
-    每个正则表达式都可以带有一个或多个flags
-    g:表示全局(global)模式
-    i:表示不区分大小写(case-insensitive)模式
-    m:表示多行模式(multiline)模式
-
-#### 2.使用RegExp构造函数
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var pattern2=new RegExp(<span class="string">"cat"</span>,g);</span><br></pre></td></tr></table></figure>
+        <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression=/pattern/flags
+</code></pre><p>例如:<br>        var pattern1=/at/g<br>匹配字符串中所有”at”的实例</p>
+<p>每个正则表达式都可以带有一个或多个flags<br>g:表示全局(global)模式<br>i:表示不区分大小写(case-insensitive)模式<br>m:表示多行模式(multiline)模式</p>
+<h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
 </code></pre>
       
     </div>
@@ -446,7 +414,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
