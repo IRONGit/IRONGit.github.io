@@ -98,7 +98,7 @@ Number类型可以表示所有数值
 最小值:Number.MIN_VALUE
 如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
 1234 co">
-<meta property="og:updated_time" content="2016-04-30T04:01:59.290Z">
+<meta property="og:updated_time" content="2016-04-30T07:56:42.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript高级程序设计第三章笔记">
 <meta name="twitter:description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
@@ -183,7 +183,7 @@ Number类型可以表示所有数值
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -193,7 +193,7 @@ Number类型可以表示所有数值
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -256,7 +256,7 @@ Number类型可以表示所有数值
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
               2016-04-29
             </time>
@@ -310,8 +310,12 @@ console.log(Number.MAX_SAFE_INTEGER);
 }
 doAdd(1,2);//11
 </code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<p>  function doAdd(num1){<br>      arguments[1]=10;<br>      console.log(arguments[0]+arguments[1]);<br>  }<br>  doAdd(2);//12</p>
-<p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
+<pre><code>function doAdd(num1){
+    arguments[1]=10;
+    console.log(arguments[0]+arguments[1]);
+}
+doAdd(2);//12
+</code></pre><p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
 <h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
 <p>但是可以通过如下方式模仿方法的重载</p>
 <pre><code>function doAdd(){
@@ -401,10 +405,10 @@ doAdd(1,2);//11
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -421,7 +425,7 @@ doAdd(1,2);//11
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -481,7 +485,7 @@ doAdd(1,2);//11
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
