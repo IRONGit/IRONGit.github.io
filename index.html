@@ -278,7 +278,7 @@
 <p>最大值:Number.MAX_VALUE</p>
 <p>最小值:Number.MIN_VALUE</p>
 <p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   console.log(Number.MAX_VALUE);//1.7976931348623157e+308</span><br><span class="line">console.log(Number.MIN_VALUE);//5e-324</span><br><span class="line">   var result=Number.MAX_VALUE+Number.MAX_VALUE;</span><br><span class="line">   console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> console.log(Number.MAX_VALUE);//1.7976931348623157e+308</span><br><span class="line">console.log(Number.MIN_VALUE);//5e-324</span><br><span class="line"> var result=Number.MAX_VALUE+Number.MAX_VALUE;</span><br><span class="line"> console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity</span><br></pre></td></tr></table></figure>
 <p>可以使用isFinite()函数确定一个数是不是有穷的</p>
 <p>另外,ES6还引入了两个常量</p>
 <p>Number.MIN_SAFE_INTEGER</p>
@@ -298,7 +298,7 @@ console.log(Number.MAX_SAFE_INTEGER);
 }
 doAdd(1,2);//11
 </code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<p>function doAdd(num1){<br>    arguments[1]=10;<br>    console.log(arguments[0]+arguments[1]);<br>}<br>doAdd(2);//12</p>
+<p>  function doAdd(num1){<br>      arguments[1]=10;<br>      console.log(arguments[0]+arguments[1]);<br>  }<br>  doAdd(2);//12</p>
 <p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
 <h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
 <p>但是可以通过如下方式模仿方法的重载</p>
@@ -539,13 +539,6 @@ console.log(matches[0]);//bat
             </a>
           </div>
 
-          
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
-            </div>
           
 
           
