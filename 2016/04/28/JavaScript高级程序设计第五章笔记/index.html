@@ -100,7 +100,7 @@ alert(colors[0]);//red
 alert(colors[2]);//undefined
 数组的length属性可以被修改
 因此改变length可以移除数组末尾的元素或者添加">
-<meta property="og:updated_time" content="2016-05-02T14:39:47.407Z">
+<meta property="og:updated_time" content="2016-05-02T15:21:11.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript高级程序设计第五章笔记">
 <meta name="twitter:description" content="第五章 引用类型Object类型Array类型Array类型有两种创建方式
@@ -123,7 +123,7 @@ alert(colors[2]);//undefined
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
@@ -131,7 +131,7 @@ alert(colors[2]);//undefined
   <title> JavaScript高级程序设计第五章笔记 | Chenwei Zhao's blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -186,7 +186,7 @@ alert(colors[2]);//undefined
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -196,7 +196,7 @@ alert(colors[2]);//undefined
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -206,7 +206,7 @@ alert(colors[2]);//undefined
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -259,7 +259,7 @@ alert(colors[2]);//undefined
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
               2016-04-28
             </time>
@@ -548,7 +548,7 @@ var objSayColor=sayColor.bind(o);
 objSayColor();//blue
 var objSayColor1=sayColor.bind(obj);
 objSayColor1();//black
-</code></pre><h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+</code></pre><h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><h3 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h3><h4 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h4><pre><code>var expression= / pattern / flags;
 </code></pre><p>例如:</p>
 <pre><code>var pattern1=/at/g
 </code></pre><p>匹配字符串中所有”at”的实例</p>
@@ -556,8 +556,8 @@ objSayColor1();//black
 <p>g:表示全局(global)模式</p>
 <p>i:表示不区分大小写(case-insensitive)模式</p>
 <p>m:表示多行模式(multiline)模式</p>
-<h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
-</code></pre><h3 id="3-两种方式的对比"><a href="#3-两种方式的对比" class="headerlink" title="3.两种方式的对比"></a>3.两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
+<h4 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h4><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
+</code></pre><h3 id="两种方式的对比"><a href="#两种方式的对比" class="headerlink" title="两种方式的对比"></a>两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
 <p>在下面第一个循环中,只为/cat/创建了一个实例,所以在循环中再次调用test()会失败<br>,因为在第一次调用test()之后,找到了”cat”,第二次调用就会从索引为3的字符开始,<br>所以找不到</p>
 <p>但是在ES5中,使用正则表达式字面量和直接调用RegExp一样,每次都创建新的RegExp实例</p>
 <pre><code>var re=null,i;
@@ -570,14 +570,14 @@ for(i=0;i&lt;10;i++){
     re=new RegExp(&quot;cat&quot;,g);
     console.log(re.test(&quot;catestrophe&quot;));
 }
-</code></pre><h3 id="4-RegExp实例属性"><a href="#4-RegExp实例属性" class="headerlink" title="4.RegExp实例属性"></a>4.RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
+</code></pre><h3 id="RegExp实例属性"><a href="#RegExp实例属性" class="headerlink" title="RegExp实例属性"></a>RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
 <p>2.ignoreCase</p>
 <p>3.lastIndex</p>
 <p>4.multiline</p>
 <p>5.source</p>
 <p>其中lastIndex表示开始搜索下一个匹配项的字符位置</p>
 <p>source返回的是正则表达式的字面量形式</p>
-<h3 id="5-RegExp实例方法"><a href="#5-RegExp实例方法" class="headerlink" title="5.RegExp实例方法"></a>5.RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
+<h3 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
 <pre><code>var text=&quot;mom and dad and baby&quot;;
 var pattern=/mom (and dad (and baby)?)?/gi;
 
@@ -688,10 +688,10 @@ console.log(matches[0]);//bat
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -708,7 +708,7 @@ console.log(matches[0]);//bat
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
@@ -741,7 +741,7 @@ console.log(matches[0]);//bat
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">1.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object类型"><span class="nav-number">1.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array类型"><span class="nav-number">1.2.</span> <span class="nav-text">Array类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测数组"><span class="nav-number">1.2.1.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">1.2.7.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">归并方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date类型"><span class="nav-number">1.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function类型"><span class="nav-number">1.4.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部的arguments对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">函数内部的arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">函数的属性和方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型"><span class="nav-number">2.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">2.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-两种方式的对比"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-RegExp实例属性"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-RegExp实例方法"><span class="nav-number">2.1.5.</span> <span class="nav-text">5.RegExp实例方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">1.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object类型"><span class="nav-number">1.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array类型"><span class="nav-number">1.2.</span> <span class="nav-text">Array类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测数组"><span class="nav-number">1.2.1.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">1.2.7.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">归并方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date类型"><span class="nav-number">1.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function类型"><span class="nav-number">1.4.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部的arguments对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">函数内部的arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">函数的属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.5.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式的对比"><span class="nav-number">1.5.2.</span> <span class="nav-text">两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例属性"><span class="nav-number">1.5.3.</span> <span class="nav-text">RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">RegExp实例方法</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -768,11 +768,11 @@ console.log(matches[0]);//bat
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

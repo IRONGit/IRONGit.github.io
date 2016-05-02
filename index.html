@@ -101,7 +101,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
@@ -109,7 +109,7 @@
   <title> Chenwei Zhao's blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -166,7 +166,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -176,7 +176,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -242,7 +242,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
               2016-04-29
             </time>
@@ -377,7 +377,7 @@ doAdd(2);//12
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
               2016-04-28
             </time>
@@ -668,7 +668,7 @@ var objSayColor=sayColor.bind(o);
 objSayColor();//blue
 var objSayColor1=sayColor.bind(obj);
 objSayColor1();//black
-</code></pre><h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+</code></pre><h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><h3 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h3><h4 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h4><pre><code>var expression= / pattern / flags;
 </code></pre><p>例如:</p>
 <pre><code>var pattern1=/at/g
 </code></pre><p>匹配字符串中所有”at”的实例</p>
@@ -676,8 +676,8 @@ objSayColor1();//black
 <p>g:表示全局(global)模式</p>
 <p>i:表示不区分大小写(case-insensitive)模式</p>
 <p>m:表示多行模式(multiline)模式</p>
-<h3 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h3><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
-</code></pre><h3 id="3-两种方式的对比"><a href="#3-两种方式的对比" class="headerlink" title="3.两种方式的对比"></a>3.两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
+<h4 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h4><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
+</code></pre><h3 id="两种方式的对比"><a href="#两种方式的对比" class="headerlink" title="两种方式的对比"></a>两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
 <p>在下面第一个循环中,只为/cat/创建了一个实例,所以在循环中再次调用test()会失败<br>,因为在第一次调用test()之后,找到了”cat”,第二次调用就会从索引为3的字符开始,<br>所以找不到</p>
 <p>但是在ES5中,使用正则表达式字面量和直接调用RegExp一样,每次都创建新的RegExp实例</p>
 <pre><code>var re=null,i;
@@ -690,14 +690,14 @@ for(i=0;i&lt;10;i++){
     re=new RegExp(&quot;cat&quot;,g);
     console.log(re.test(&quot;catestrophe&quot;));
 }
-</code></pre><h3 id="4-RegExp实例属性"><a href="#4-RegExp实例属性" class="headerlink" title="4.RegExp实例属性"></a>4.RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
+</code></pre><h3 id="RegExp实例属性"><a href="#RegExp实例属性" class="headerlink" title="RegExp实例属性"></a>RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
 <p>2.ignoreCase</p>
 <p>3.lastIndex</p>
 <p>4.multiline</p>
 <p>5.source</p>
 <p>其中lastIndex表示开始搜索下一个匹配项的字符位置</p>
 <p>source返回的是正则表达式的字面量形式</p>
-<h3 id="5-RegExp实例方法"><a href="#5-RegExp实例方法" class="headerlink" title="5.RegExp实例方法"></a>5.RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
+<h3 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
 <pre><code>var text=&quot;mom and dad and baby&quot;;
 var pattern=/mom (and dad (and baby)?)?/gi;
 
@@ -800,7 +800,7 @@ console.log(matches[0]);//bat
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
@@ -849,11 +849,11 @@ console.log(matches[0]);//bat
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
