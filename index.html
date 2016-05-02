@@ -166,7 +166,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -176,7 +176,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -242,7 +242,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
               2016-04-29
             </time>
@@ -377,7 +377,7 @@ doAdd(2);//12
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
               2016-04-28
             </time>
@@ -407,7 +407,268 @@ doAdd(2);//12
       
         
           
-            <h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
+            <h1 id="第五章-引用类型"><a href="#第五章-引用类型" class="headerlink" title="第五章 引用类型"></a>第五章 引用类型</h1><h2 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h2><h2 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h2><p>Array类型有两种创建方式</p>
+<p>1.Array构造函数</p>
+<p>2.数组字面量</p>
+<pre><code>var colors=[&quot;red&quot;,&quot;white&quot;];
+alert(colors[0]);//red
+alert(colors[2]);//undefined
+</code></pre><p>数组的length属性可以被修改</p>
+<p>因此改变length可以移除数组末尾的元素或者添加新的元素</p>
+<pre><code>//移除末尾元素
+colors.length=1;
+alert(colors[1]);//undefined
+//添加新的元素
+colors[colors.length]=&quot;green&quot;;
+colors[colors.length]=&quot;black&quot;;
+alert(colors[1]);
+alert(colors[2]);
+</code></pre><p>数组的长度有限制,如果超过上限值,会发生异常,如果创建的数初始大小与上限值接近,可<br>能会导致运行时间超长的脚本错误</p>
+<h3 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h3><p>要想检测某个值是不是数组,推荐使用ES5中新增的isArray()方法,目前IE9+,FireFox 4+,Safari 5+ Opera 10.5+ Chrome中都支持这个方法</p>
+<h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><p>数组的toString()方法返回的是由数组中的每个值的字符串形式拼接,以逗号分隔的字符串<br>valueOf()方法返回的是数组</p>
+<p>ES中的数组具有类似于栈和队列的方法</p>
+<h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><p>push():向数组末尾添加元素并返回长度</p>
+<p>pop():移除数组末尾最后一项</p>
+<h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><p>shift():移除数组的第一项并返回长度</p>
+<p>unshift():在数组前端添加任意个项并返回新数组的长度</p>
+<pre><code>var colors=new Array(&quot;white&quot;);
+var count=colors.unshift(&quot;red&quot;,&quot;green&quot;);
+alert(colors);//red,green,white
+colors.unshift(&quot;black&quot;);//black,red,green,white
+</code></pre><p>结合shift()方法和push()方法可以模拟队列</p>
+<p>结合unshift()和pop()方法可以从相反的方向模拟队列</p>
+<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><p>数组有两个方法可以用来重排序一个是reverse(),一个是sort(),两个方法的返回值都是排序后的数组</p>
+<p>reverse()就是把数组反转</p>
+<p>需要注意的是,sort()方法在执行时会调用每项的toString()方法,然后比较得到的字符串</p>
+<p>所以,如下代码的结果应该是 0,1,10,15,5</p>
+<pre><code>var values=[0,1,5,10,15];
+values.sort();
+alert(values);//0,1,10,15,5
+</code></pre><p>不过,sort()函数可以接收一个比较函数作为参数,以此来决定哪个值在前哪个值在后</p>
+<pre><code>function compare(value1,value2){
+    if(value1&lt;value2){
+        return -1;
+    }else if(value1&gt;value2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+</code></pre><p>比较函数接收两个参数,通过返回一个数值来影响排序结果,如果第一个参数在第二个参数前,返回一个负数,如果第一个参数在第二个参数后,返回一个正数,相等则返回0</p>
+<pre><code>var values=[0,1,10,5,15];
+values.sort(compare);
+alert(values);//0,1,5,10,15
+</code></pre><h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><p>concat():</p>
+<p>首先创建一个数组的副本,然后将参数添加到副本的末尾,最后返回新数组</p>
+<p>slice():</p>
+<p>例:</p>
+<p>slice(1)</p>
+<p>返回数组位置1到数组末尾的所有项</p>
+<p>slice(1,4)</p>
+<p>返回数组位置1到位置3的所有项(左闭右开)</p>
+<p>参数存在负数的情况:</p>
+<p>在一个长度为5的数组中</p>
+<p>slice(-2,-1)与slice(3,4)相同,如果结束位置小于起始位置,返回空数组</p>
+<p>splice():</p>
+<p>splice()函数可以在数组中实现删除,插入和替换的功能</p>
+<p>返回值是一个数组,数组中包含从原始数组中删除的项(删除项数为0则返回空数组)</p>
+<p>splice()的第一个参数表示起始位置,第二个参数表示要删除的项数</p>
+<p>比如splice(0,1);表示从数组的位置0开始,删除一项</p>
+<p>splice(1,0,”yellow”,”orange”)</p>
+<p>表示从数组的位置1开始删除0项,并从位置1开始插入”yellow”,”orange”两项</p>
+<p>splice(1,1,”red”,”purple”)</p>
+<p>表示从数组的位置1开始删除一项,并从位置一开始插入”red”,”purple”两项</p>
+<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><p>every()和some()都用于查询数组中的项是否满足某个条件</p>
+<p>必须所有项都返回true,every()才返回true</p>
+<p>只要有一项返回true,some()就返回true</p>
+<pre><code>var numbers=[1,2,3,4,5,4,3,2,1];
+
+var everyResult=numbers.every(function(item,index,array){
+        return (item&gt;2);
+});
+
+alert(everyResult);//false
+
+
+var someResult=numbers.some(function(item,index,array){
+        return (item&gt;2);
+});
+
+alert(someResult);//true
+</code></pre><p>filter()用于查询符合条件的所有项</p>
+<pre><code>var numbers=[1,2,3,4,5,4,3,2,1,4];
+
+var filterResult=numbers.filter(function(item,index,array){
+        return (item&gt;2);
+});
+
+alert(filterResult);
+</code></pre><p>map()用于创建一个与原数组的项一一对应的数组</p>
+<pre><code>var numbers=[1,2,3,4,5,4,3,2,1,4];
+var mapResult=numbers.map(function(item,index,array){
+        return item*2;
+});
+</code></pre><p>forEach()方法没有返回值;</p>
+<pre><code>var numbers=[1,2,3,4,5,4,3,2,1];
+numbers.forEach(function(item,index,array){
+        alert(numbers[index]);
+});
+</code></pre><h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><p>ES5新增了两个归并方法:</p>
+<p>reduce()和reduceRight()</p>
+<p>感觉在这本书上对这两个方法的描述不太清楚,但是看书还是能看懂的,后来查了一下,在MSDN上找到了一个不错的解释</p>
+<blockquote>
+<p>array1.reduce(callbackfn[, initialValue])</p>
+<p>对数组中的所有元素调用指定的回调函数。该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供</p>
+</blockquote>
+<pre><code>var values=[1,2,3,4,5];
+var sum=values.reduce(function(prev,cur,index,array){
+        return prev+cur;
+},5);
+
+alert(sum);//20
+
+
+//MSDN的示例
+
+function Process(prev,cur){
+    var nextArr;
+    if(cur&lt;=10&amp;&amp;cur&gt;=1){
+        nextArr=prev.concat(cur);
+    }else{
+        nextArr=prev;
+    }
+    return nextArr;
+}
+
+
+    var numbers = [20, 1, -5, 6, 50, 3];
+    var emptyArray=new Array();
+    var resultArray=numbers.reduce(Process,emptyArray);
+
+    alert(resultArray);//1,6
+</code></pre><p>prev代表前一个值,cur代表当前的值,index代表项的索引,array代表数组对象</p>
+<p>需要注意的是,在第一次迭代时,prev参数是数组的第一项,cur是数组的第二项,</p>
+<p>也就是说迭代是从数组的第二项开始的</p>
+<h2 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h2><p>有三个方法<br>        Date.parse();<br>        Date.UTC();<br>        Date.now();<br>        其中Date.now()是ES5新增的方法<br>        在不支持Date.now()方法的浏览器中,使用+操作符可以获取Date对象的时间戳</p>
+<h2 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h2><blockquote>
+<p>说起来ECMAScript中什么最有意思,我想那莫过于函数了-而有意思的根源,则在于函数实际上是对象</p>
+</blockquote>
+<p>一个函数可以被当做参数传递给另一个函数,也可以被另一个函数当做函数的结果返回</p>
+<pre><code>function callSomeFunction(someFunction,someArguments){
+    return someFunction(someArguments);
+}
+
+function add10(num){
+    return num+10;
+}
+
+var result1=callSomeFunction(add10,10);
+alert(result1);
+</code></pre><p>给对象数组排序(根据对象的属性)</p>
+<pre><code>function createComparisonFunction(propertyName){
+    return function comparisonFunction(obj1,obj2){
+        var val1=obj1[propertyName];
+        var val2=obj2[propertyName];
+        if(val1&lt;val2){
+            return -1;
+        }else if(val1&gt;val2){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+}
+var data=[{name:&quot;Zachary&quot;,age:28},{name:&quot;Nicholas&quot;,age:29}];
+data.sort(createComparisonFunction(&quot;name&quot;));
+console.log(data);
+data.sort(createComparisonFunction(&quot;age&quot;));
+console.log(data);
+</code></pre><h3 id="函数内部的arguments对象"><a href="#函数内部的arguments对象" class="headerlink" title="函数内部的arguments对象"></a>函数内部的arguments对象</h3><p>每个函数内部都有一个arguments对象,主要功能是保存函数参数</p>
+<p>但是这个对象还有一个属性callee,这个属性是一个指针,指向拥有这个arguments对象的</p>
+<p>函数</p>
+<pre><code>//阶乘
+function factorial(num){
+    if(num&lt;=1){
+        return 1;
+    }else{
+        return num*arguments.callee(num-1);
+    }
+}
+</code></pre><p>函数内部的this对象<br>        var color=”red”;<br>        var sayColor=function(){<br>            this.color=”blue”;<br>            alert(this.color);<br>        }<br>        sayColor();</p>
+<p>caller属性保存着调用当前函数的函数的引用</p>
+<p>如果在全局作用域中调用当前函数,caller的值为null</p>
+<pre><code>function outer(){
+    inner();
+}
+
+function inner(){
+    alert(arguments.callee.caller);
+}
+
+outer();//显示outer函数的源代码
+
+inner();//显示null
+
+/*hidden*/
+(function (n){
+    if(n&lt;=1) return 1;
+    return n*arguments.callee(n-1);
+})(10);
+</code></pre><h3 id="函数的属性和方法"><a href="#函数的属性和方法" class="headerlink" title="函数的属性和方法"></a>函数的属性和方法</h3><p>函数也是对象,所以函数也有属性和方法,</p>
+<p>每个函数都有两个属性:prototype和length</p>
+<p>length表示接收的命名参数的个数</p>
+<pre><code>function sayName(name){
+    arguments[1]=4;
+    alert(name);
+}
+alert(sayName.length);//1
+</code></pre><p>prototype属性//链接到第六章待更新</p>
+<p>每个函数也都包含两个非继承而来的方法:apply()和call()</p>
+<p>两个方法的功能一样,不同点在于传入的参数不同</p>
+<p>apply()方法和call()方法的第一个参数都是this,代表当前作用域</p>
+<p>apply()的第二个参数可以是arguments对象,也可以是Array的实例</p>
+<p>但是在使用call()时,传递的参数必须依次列举出来</p>
+<pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+
+function callSum1(num1,num2){
+    return sum.apply(this,arguments);
+}
+
+
+function callSum2(num1,num2){
+    return sum.apply(this,[num1,num2]);
+}
+
+function callSum3(num1,num2){
+    return sum.call(this,num1,num2);
+}
+</code></pre><p>apply()和call()方法最大的作用是扩充函数的作用域</p>
+<pre><code>var color=&quot;red&quot;;
+var o={color:&quot;blue&quot;};
+function sayColor(){
+    alert(this.color);
+}
+sayColor();
+sayColor.call(this);//red
+sayColor.call(o);//blue
+sayColor.call(window);//red
+</code></pre><p>这样做的最大好处就是解除了对象o和sayColor函数的耦合关系</p>
+<p>不需要像之前那样写o.sayColor=sayColor了</p>
+<p>ES5还有一种方法bind()</p>
+<p>bind()函数接收一个对象,创建一个函数的实例,实例的this值被绑定给对象</p>
+<pre><code>window.color=&quot;red&quot;;
+var o={color:&quot;blue&quot;};
+var obj={color:&quot;black&quot;};
+function sayColor(){
+    alert(this.color);
+}
+var objSayColor=sayColor.bind(o);
+objSayColor();//blue
+var objSayColor1=sayColor.bind(obj);
+objSayColor1();//black
+</code></pre><h1 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h1><h2 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h2><h3 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h3><pre><code>var expression= / pattern / flags;
 </code></pre><p>例如:</p>
 <pre><code>var pattern1=/at/g
 </code></pre><p>匹配字符串中所有”at”的实例</p>
@@ -539,7 +800,7 @@ console.log(matches[0]);//bat
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -588,7 +849,7 @@ console.log(matches[0]);//bat
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
