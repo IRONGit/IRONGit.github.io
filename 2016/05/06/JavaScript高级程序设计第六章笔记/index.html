@@ -1,0 +1,943 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="怎么创建一个对象使用Object构造函数var person=new Object();
+person.name=&amp;quot;zhangsan&amp;quot;;
+person.age=20;
+person.sayName=function(){
+  alert(this.name);
+}
+字面量  var person={    name:”zhangsan”,    age:20,
+sayName:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript高级程序设计第六章笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/06/JavaScript高级程序设计第六章笔记/index.html">
+<meta property="og:site_name" content="Chenwei Zhao's blog">
+<meta property="og:description" content="怎么创建一个对象使用Object构造函数var person=new Object();
+person.name=&amp;quot;zhangsan&amp;quot;;
+person.age=20;
+person.sayName=function(){
+  alert(this.name);
+}
+字面量  var person={    name:”zhangsan”,    age:20,
+sayName:">
+<meta property="og:updated_time" content="2016-05-06T09:46:34.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript高级程序设计第六章笔记">
+<meta name="twitter:description" content="怎么创建一个对象使用Object构造函数var person=new Object();
+person.name=&amp;quot;zhangsan&amp;quot;;
+person.age=20;
+person.sayName=function(){
+  alert(this.name);
+}
+字面量  var person={    name:”zhangsan”,    age:20,
+sayName:">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript高级程序设计第六章笔记 | Chenwei Zhao's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chenwei Zhao's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">good good study day day up</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript高级程序设计第六章笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-06T16:53:18+08:00" content="2016-05-06">
+              2016-05-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="怎么创建一个对象"><a href="#怎么创建一个对象" class="headerlink" title="怎么创建一个对象"></a>怎么创建一个对象</h1><h2 id="使用Object构造函数"><a href="#使用Object构造函数" class="headerlink" title="使用Object构造函数"></a>使用Object构造函数</h2><pre><code>var person=new Object();
+person.name=&quot;zhangsan&quot;;
+person.age=20;
+person.sayName=function(){
+  alert(this.name);
+}
+</code></pre><h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p>  var person={<br>    name:”zhangsan”,<br>    age:20,</p>
+<pre><code>sayName:function(){
+  alert(this.name);
+}
+</code></pre><p>  };</p>
+<h1 id="ES中的两种属性"><a href="#ES中的两种属性" class="headerlink" title="ES中的两种属性"></a>ES中的两种属性</h1><h2 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h2><p>有四种数据属性用于描述属性的特征</p>
+<p>[[Configurable]]:表示能否通过delete操作符删除,或者能否修改为访问器属性</p>
+<p>[[Enumerable]]:表示属性能否被枚举,即能否通过for-in循环返回属性</p>
+<p>[[Writable]]:表示能否修改属性的值</p>
+<p>[[Value]]: 包含这个属性的属性值,读取这个数据时,从这个位置读,写入属性值时,</p>
+<p>将新值保存在这个位置</p>
+<p>如果直接在对象中定义属性,除了[[Value]]特性都被设置为true</p>
+<p>可以通过ES5的Object.defineProperty()方法修改属性默认的特性</p>
+<p>调用Object.defineProperty()方法时,如果不指定,那么configurable,enumerable,</p>
+<p>writable特性的默认值都是false</p>
+<p>  var person={};<br>  Object.defineProperty(person,”name”,{<br>    writable:false,<br>    value:”zhangsan”<br>  });<br>  alert(person.name);//zhangsan<br>  person.name=”lisi”;<br>  //在严格模式下,会抛出错误<br>  alert(person.name);//还是zhangsan</p>
+<p>修改了对象属性的Configurable属性之后,再修改writable之外的特性都会导致错误</p>
+<p>  var person={};<br>  Object.defineProperty(person,”name”,{<br>    configurable:false,<br>    value:”zhangsan”<br>  });</p>
+<h2 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h2><p>  [[Configurable]]:表示能否通过delete操作符删除,默认为true</p>
+<p>  [[Enumerable]]:能否通过for-in循环返回属性,默认为true</p>
+<p>  [[Get]]:读取属性时调用,默认为undefined</p>
+<p>  [[Set]]:写入属性时调用,默认为undefined</p>
+<p>  同样,必须使用Object.defineProperty()方法定义以上特性</p>
+<pre><code>var book={
+  _year:2004,
+  edition:1
+};
+
+Object.defineProperty(book,&quot;year&quot;,{
+  get:function(){
+    return this._year;
+  },
+  set:function(newValue){
+    if(newValue&gt;2004){
+      this._year=newValue;
+      this.edition+=newValue-2004;
+    }
+  }
+});
+
+
+book.year=2005;
+alert(book.edition);
+</code></pre><p>  最好同时指定getter和setter</p>
+<p>  否则在非严格模式下,只制定getter函数会导致无法写入属性,只制定setter会</p>
+<p>  导致属性不能读</p>
+<p>  在严格模式下,会抛出错误</p>
+<h2 id="更方便的定义方法"><a href="#更方便的定义方法" class="headerlink" title="更方便的定义方法"></a>更方便的定义方法</h2><p>  var book={_year:2004,edition:1};</p>
+<pre><code>Object.defineProperties(book,{
+  //定义数据属性
+  _year:{
+    value:2004
+  },
+  edition:{
+    value:1
+  },
+  //定义访问器属性
+  year:{
+    get:function(){
+      return this.y_ear;
+    },
+    set:function(){
+      if(newValue&gt;2004){
+        this._year=newValue;
+        this.edition+=newValue-2004;
+      }
+    }
+  }
+});
+</code></pre><h3 id="读取属性的特性"><a href="#读取属性的特性" class="headerlink" title="读取属性的特性"></a>读取属性的特性</h3><pre><code>var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+console.log(descriptor);
+
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;year&quot;);
+console.log(descriptor);
+</code></pre><h1 id="还能怎么创建对象"><a href="#还能怎么创建对象" class="headerlink" title="还能怎么创建对象"></a>还能怎么创建对象</h1><h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><pre><code>function createPerson(name,age,job){
+  var o=new Object();
+  o.name=name;
+  o.age=age;
+  o.job=job;
+  o.sayName=function(){
+    alert(this.name);
+  }
+  return o;
+}
+</code></pre><p>工厂模式的优点在于不用像之前那样写很多重复的代码来创建相似的对象</p>
+<p>但是缺点在于无法知道生成对象的类型是什么</p>
+<pre><code>var person1=createPerson(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;);
+alert(person1 instanceof Object);//true
+</code></pre><h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><pre><code>function Person(name,age,job){
+  this.name=name;
+  this.age=age;
+  this.job=job;
+  this.sayName=function(){
+    alert(this.name);
+  }
+}
+
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;);
+
+person1有一个constructor属性,指向Person
+</code></pre><p>构造函数模式胜过工厂模式的地方就是可以将通过构造函数创建的对象标识为一种</p>
+<p>特定的类型</p>
+<pre><code>alert(person1.constructor==Person);//true
+alert(person1 instanceof Person);//true
+</code></pre><p>像上面那样定义构造函数会导致每个Person实例中都有一个不同的sayName方法,</p>
+<p>所以,可以把函数定义在构造函数外面</p>
+<pre><code>function Person(name,age,job){
+  this.name=name;
+  this.age=age;
+  this.job=job;
+  this.sayName=sayName;
+}
+function sayName(){
+  alert(this.name);
+}
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;);
+var person2=new Person(&quot;lisi&quot;,20,&quot;Software Engineer&quot;);
+person1.sayName==person2.sayName;///true
+</code></pre><p>不过,如果Person中有很多函数,就需要在全局作用域中定义很多函数,破坏了封装性</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>我们创建的每个函数都有一个prototype属性,prototype指向一个对象,这个对象就是</p>
+<p>我们调用构造函数创建的对象的原型对象,原型对象的所有属性和方法都是被所有对象实例</p>
+<p>共享的</p>
+<h3 id="原型对象"><a href="#原型对象" class="headerlink" title="原型对象"></a>原型对象</h3><p>  说明:</p>
+<p>  1.Person是构造函数</p>
+<p>  2.person1是通过Person构造函数定义的对象</p>
+<p>  3.Person.prototype是Person这个函数的prototype属性指向的原型对象</p>
+<p>  谁指向谁:</p>
+<p>  1.Person的prototype属性指向Person.prorotype</p>
+<p>  2.Person.prototype的constructor(构造函数)属性指向Person</p>
+<p>  3.person1(Person的实例)的[[Prototype]]属性指向Person.prototype</p>
+<p>  所以,下面代码结果为true</p>
+<p>  有空上图</p>
+<pre><code>function Person(name,age,job){
+  this.name=name;
+  this.age=age;
+  this.job=job;
+}
+Person.prototype.sayName=function(){
+  alert(this.name);
+}
+
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;);
+
+alert(Person.prototype.isPrototypeOf(person1));//true
+</code></pre><p>ES5中增加了Object.getPrototypeOf()方法,可以通过这个方法访问实例的</p>
+<p>[[Prototype]]的值</p>
+<pre><code>alert(Object.getPrototypeOf(person1)==Person.prototype);//true
+</code></pre><p>重写实例中的属性不会影响原型中的同名属性,只会屏蔽原型对象中的同名属性,</p>
+<p>当使用delete删除实例属性时,可以重新访问原型对象中的属性</p>
+<p>通过使用hasOwnProperty()方法可以知道某个属性是实例的属性还是</p>
+<p>原型对象的属性</p>
+<p>无论属性是在原型还是在实例中,in操作符都会返回true</p>
+<h3 id="封装个函数帮你确定原型中的属性"><a href="#封装个函数帮你确定原型中的属性" class="headerlink" title="封装个函数帮你确定原型中的属性"></a>封装个函数帮你确定原型中的属性</h3><pre><code>function hasPrototypeProperty(object,name){
+  return !Object.hasOwnProperty(name)&amp;&amp;(name in object);
+}
+</code></pre><p>如果原型对象中的某个属性是不可枚举的([[Enumerable]]的值为false),</p>
+<p>但是在实例对象中重新定义了这个属性,那么可以通过for-in访问</p>
+<p>因为规定所有开发人员定义的属性都是可枚举的</p>
+<pre><code>var keys=Object.keys(Person.prototype);
+</code></pre><p>Object.getOwnPropertyNames()方法返回所有实例属性(无论是否可枚举)</p>
+<p>区别:</p>
+<p>for-in 只返回所有可枚举的属性(不管是在实例中还是在原型中)</p>
+<p>Object.getOwnPropertyNames()返回所有实例属性(无论是否可枚举)</p>
+<h3 id="用更简单的方法重写原型对象"><a href="#用更简单的方法重写原型对象" class="headerlink" title="用更简单的方法重写原型对象"></a>用更简单的方法重写原型对象</h3><pre><code>function Person(){
+}
+Person.prototype={
+  name:&quot;zhangsan&quot;,
+  age:20,
+  job:&quot;Software Engineer&quot;,
+  sayName:function(){
+    alert(this.name);
+  }
+};
+</code></pre><p>需要注意的是,这种字面量的写法相当于完全重写了Person.prototype对象</p>
+<p>所以,Person.prototype.constructor不再指向Person,而是指向Object,</p>
+<p>应该这么写:</p>
+<pre><code>function Person(){
+}
+Person.prototype={
+  constructor:Person,
+  name:&quot;zhangsan&quot;,
+  age:20,
+  job:&quot;Software Engineer&quot;,
+  sayName:function(){
+    alert(this.name);
+  }
+};
+</code></pre><p>但是,这么写又出现了一个问题</p>
+<p>constructor属性的[[Enumerable]]默认是false的,即不可枚举的</p>
+<p>这么写了之后,会导致[[Enumberable]]特性被设置为true,所以,</p>
+<p>现在要用到这章开头提到的Object.defineProperty()函数了</p>
+<p>注意在Person.prototype的字面量中不需要定义constructor属性了</p>
+<pre><code>function Person(){
+}
+Person.prototype={
+  name:&quot;zhangsan&quot;,
+  age:20,
+  job:&quot;Software Engineer&quot;,
+  sayName:function(){
+    alert(this.name);
+  }
+};
+
+//只适用于与ES5兼容的浏览器
+Object.defineProperty(Person.prototype,&quot;constructor&quot;,{
+  enumerable:false,
+  value:Person
+});
+</code></pre><p>像下面这样写时,会导致person1的[[Prototype]]仅仅指向最初的原型对象</p>
+<p>因为以字面量定义原型对象时,相当于完全重写原型对象,因此,person1的</p>
+<p>[[Prototype]]不是指向新定义的原型对象,而是指向最初的原型对象,</p>
+<p>然而最初的原型对象中没有sayName这个属性</p>
+<pre><code>function Person(){
+}
+
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;);
+
+Person.prototype={
+  constructor:Person,
+  name:&quot;zhangsan&quot;,
+  age:20,
+  job:&quot;Software Engineer&quot;,
+  sayName:function(){
+    alert(this.name);
+  }
+};
+
+alert(person1.sayName());//报错
+</code></pre><h3 id="原生对象的原型"><a href="#原生对象的原型" class="headerlink" title="原生对象的原型"></a>原生对象的原型</h3><p>原生对象的很多方法也是定义在原生对象的原型上的</p>
+<p>通过原生对象的原型,可以为原生对象添加自定义的方法</p>
+<p>不过不推荐修改原生对象的原型</p>
+<pre><code>String.prototype.startsWith=function(text){
+  return this.toLowerCase().indexOf(text.toLowerCase())==0;
+}
+
+var msg=&quot;Hello world!&quot;;
+alert(msg.startsWith(&quot;Hello&quot;));//true
+</code></pre><h2 id="组合构造函数模式和原型模式"><a href="#组合构造函数模式和原型模式" class="headerlink" title="组合构造函数模式和原型模式"></a>组合构造函数模式和原型模式</h2><p>构造函数模式用于定义实例属性,原型模式用于定义方法和共享的属性</p>
+<pre><code>function Person(name,age,job,friends){
+  this.name=name;
+  this.age=age;
+  this.job=job;
+  this.friends=[friends];
+}
+Person.prototype={
+  constructor:Person,
+  sayName:function(){
+    alert(this.name);
+  },
+  sayFriends:function(){
+    alert(this.friends);
+  }
+};
+
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;Software Engineer&quot;,[&quot;lisi&quot;,&quot;wangwu&quot;]);
+
+var person2=new Person(&quot;lisi&quot;,20,&quot;Software Engineer&quot;,[&quot;zhangsan&quot;,&quot;wangwu&quot;]);
+alert(person1.sayName());
+</code></pre><h2 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h2><p>动态原型模式就是在构造函数中判断是否已经完成了原型的初始化</p>
+<p>如果原型的未完成初始化,则初始化原型</p>
+<pre><code>function Person(name,age,job,friends){
+  this.name=name;
+  this.age=age;
+  this.job=job;
+  this.friends=friends;
+  //判断
+  if(typeof this.sayName != &apos;function&apos; ){
+    Person.prototype.sayName=function(){
+      alert(this.name);
+    }
+    Person.prototype.sayFriends=function(){
+      alert(this.friends);
+    }
+  }
+}
+
+var person1=new Person(&quot;zhangsan&quot;,20,&quot;SoftWare Engineer&quot;,[&quot;lisi&quot;,&quot;wangwu&quot;]);
+</code></pre><h1 id="关于继承"><a href="#关于继承" class="headerlink" title="关于继承"></a>关于继承</h1><pre><code>function SuperType(){
+  this.property=true;
+}
+
+SuperType.prototype.getSuperValue=function(){
+  return this.property;
+}
+
+function SubType(){
+  this.subproperty=false;
+}
+SubType.prototype=new SuperType();
+
+SubType.prototype.getSubValue=function(){
+  return this.subproperty;
+}
+
+var instance=new SubType();
+alert(instance.getSuperValue());
+</code></pre><p>刚开始让我困惑的是</p>
+<p>书上164页上面第一段提到了instance.constructor指向SuperType</p>
+<p>这一点让我想了挺长时间</p>
+<p>因为我认为instance是SubType的一个实例,默认不会有constructor属性</p>
+<p>只有构造函数被定义时,构造函数的原型对象才会有constructor属性</p>
+<p>虽然当时我也看到了下面的注解,但是仍然有些困惑</p>
+<p>最后,我得出了一个比较确定的结论,instance的constructor属性是顺着原型链</p>
+<p>向上搜索得到的,instance的constructor属性也就是SuperType.prototype的</p>
+<p>constructor属性,这一点通过Object.hasOwnProperty()方法也得到了验证</p>
+<p>(在我把笔记转为Markdown格式的时候,发现在前面构造函数模式时,提到了对象实例拥有<br>constructor属性)</p>
+<p>  alert(instance.hasOwnProperty(“constructor”));//false<br>  alert(SuperType.prototype.hasOwnProperty(“constructor”));//true</p>
+<h2 id="原型链也不是完美的"><a href="#原型链也不是完美的" class="headerlink" title="原型链也不是完美的"></a>原型链也不是完美的</h2><pre><code>function SuperType(colors){
+  this.colors=[&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+  this.name=&quot;zhangsan&quot;;
+}
+function SubType(){
+}
+SubType.prototype=new SuperType();
+var instance1=new SubType();
+var instance2=new SubType();
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.name);//zhangsan
+instance1.name=&quot;lisi&quot;;//lisi
+alert(instance1.name);//lisi
+alert(instance2.name);//zhangsan
+alert(instance1.colors);//red,blue,green,black
+alert(instance2.colors);//red,blue,green,black
+</code></pre><p>这段代码有什么问题呢?</p>
+<p>本来,在之前,我们通过使用构造函数和原型模式组合的方式,实现了一种比较好的</p>
+<p>创建对象的方法(构造函数里定义实例属性,原型模式定义方法和公共属性)</p>
+<p>但是,在这段代码中,我们定义的实例属性(引用类型)却被所有继承SuperType的SubType的实例</p>
+<p>共有了</p>
+<p>这不是我们想要的结果啊</p>
+<p>所以,</p>
+<blockquote>
+<p>实践中很少会单独使用原型链</p>
+</blockquote>
+<h2 id="constructor-stealing"><a href="#constructor-stealing" class="headerlink" title="constructor stealing"></a>constructor stealing</h2><p>偷个构造函数</p>
+<pre><code>function SuperType(){
+  this.colors=[&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+}
+
+function SubType(){
+  //通过call()/apply()方法在新创建的对象上执行构造函数
+  SuperType.call(this);
+}
+
+var instance1=new SubType();
+instance1.colors.push(&quot;black&quot;);
+var instance2=new SubType();
+alert(instance1.colors);//red,blue,green,black
+alert(instance2.colors);//red,blue,green
+</code></pre><p>但是这种方法又导致函数无法复用,并且在超类型的原型中定义的方法,对子类型</p>
+<p>而言是不可见的,所以也很少单独使用这种方法</p>
+<h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><p>使用原型链实现对原型属性和方法的继承,使用构造函数实现对实例属性的继承</p>
+<pre><code>function SuperType(name){
+  this.name=name;
+  this.colors=[&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
+}
+
+SuperType.prototype.sayName=function(){
+  alert(this.name);
+}
+
+function SubType(name,age){
+  SuperType.call(this,name);
+  this.age=age;
+}
+
+SubType.prototype=new SuperType();
+
+SubType.prototype.constructor=SubType;
+
+SubType.prototype.sayAge=function(){
+  alert(this.age);
+}
+
+var instance1=new SubType(&quot;zhangsan&quot;,20);
+//alert(instance1.sayAge());//20
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/29/JavaScript高级程序设计第三章笔记/" rel="next" title="JavaScript高级程序设计第三章笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第三章笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Zhao Chenwei" />
+          <p class="site-author-name" itemprop="name">Zhao Chenwei</p>
+          <p class="site-description motion-element" itemprop="description">good good study day day up</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么创建一个对象"><span class="nav-number">1.</span> <span class="nav-text">怎么创建一个对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Object构造函数"><span class="nav-number">1.1.</span> <span class="nav-text">使用Object构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字面量"><span class="nav-number">1.2.</span> <span class="nav-text">字面量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES中的两种属性"><span class="nav-number">2.</span> <span class="nav-text">ES中的两种属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据属性"><span class="nav-number">2.1.</span> <span class="nav-text">数据属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问器属性"><span class="nav-number">2.2.</span> <span class="nav-text">访问器属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更方便的定义方法"><span class="nav-number">2.3.</span> <span class="nav-text">更方便的定义方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取属性的特性"><span class="nav-number">2.3.1.</span> <span class="nav-text">读取属性的特性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#还能怎么创建对象"><span class="nav-number">3.</span> <span class="nav-text">还能怎么创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">3.1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数模式"><span class="nav-number">3.2.</span> <span class="nav-text">构造函数模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式"><span class="nav-number">3.3.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型对象"><span class="nav-number">3.3.1.</span> <span class="nav-text">原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装个函数帮你确定原型中的属性"><span class="nav-number">3.3.2.</span> <span class="nav-text">封装个函数帮你确定原型中的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用更简单的方法重写原型对象"><span class="nav-number">3.3.3.</span> <span class="nav-text">用更简单的方法重写原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原生对象的原型"><span class="nav-number">3.3.4.</span> <span class="nav-text">原生对象的原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合构造函数模式和原型模式"><span class="nav-number">3.4.</span> <span class="nav-text">组合构造函数模式和原型模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态原型模式"><span class="nav-number">3.5.</span> <span class="nav-text">动态原型模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于继承"><span class="nav-number">4.</span> <span class="nav-text">关于继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链也不是完美的"><span class="nav-number">4.1.</span> <span class="nav-text">原型链也不是完美的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-stealing"><span class="nav-number">4.2.</span> <span class="nav-text">constructor stealing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合继承"><span class="nav-number">4.3.</span> <span class="nav-text">组合继承</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Chenwei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -100,7 +100,7 @@ alert(colors[0]);//red
 alert(colors[2]);//undefined
 数组的length属性可以被修改
 因此改变length可以移除数组末尾的元素或者添加">
-<meta property="og:updated_time" content="2016-05-02T15:21:11.808Z">
+<meta property="og:updated_time" content="2016-05-04T03:33:37.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript高级程序设计第五章笔记">
 <meta name="twitter:description" content="第五章 引用类型Object类型Array类型Array类型有两种创建方式
@@ -610,7 +610,28 @@ console.log(matches.index);//4
 console.log(matches[0]);//bat
 </code></pre><p>另一个方法是test(),接收一个字符串参数<br>如果只想知道目标字符串和模式是否匹配而不需要知道其他细节的情况下,一般使用这个方法</p>
 <p>RegExp实例继承的toLocalString()方法和toString()方法都会返回正则表达式的字面量</p>
-
+<h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><p>每当读取一个基本类型值的时候,后台会创建一个对应的基本包装类型的对象方便<br>数据操作</p>
+<p>操作基本类型值的语句执行完毕之后就立即销毁这个对象</p>
+<h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><pre><code>//创建Number对象可以通过Number构造函数
+var numberObj=new Number(10);
+</code></pre><p>valueOf()方法返回以基本类型表示的对象表示的数值</p>
+<p>toString()和toLocalString()方法返回字符串形式的数值</p>
+<p>可以向toString()传递一个参数表示基数</p>
+<pre><code>alert(typeof numberObj.valueOf());//number
+</code></pre><h4 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h4><p>toFixed()方法接收一个参数,表示小数点后的位数</p>
+<pre><code>var number=10;
+alert(number.toFixed(2));//10.00
+</code></pre><p>如果本身的位数多余参数指定的位数,则进行舍入</p>
+<pre><code>var number=10.005;
+alert(number.toFixed(2));//10.01
+</code></pre><p>toExponential()方法返回以指数表示法表示的数值的字符串形式</p>
+<pre><code>var num=10;
+alert(num.toExponential(1));//1.0e+1
+</code></pre><p>toPrecision()方法会根据要处理的数值决定调用toFixed()还是toExponential()</p>
+<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><p>String类型的每个实例都有一个length属性</p>
+<p>需要注意的是,即使是双字节字符也算一个字符</p>
+<pre><code>alert(&quot;哈哈&quot;.length);//2
+</code></pre>
       
     </div>
     
@@ -707,13 +728,20 @@ console.log(matches[0]);//bat
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -741,7 +769,7 @@ console.log(matches[0]);//bat
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">1.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object类型"><span class="nav-number">1.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array类型"><span class="nav-number">1.2.</span> <span class="nav-text">Array类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测数组"><span class="nav-number">1.2.1.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">1.2.7.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">归并方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date类型"><span class="nav-number">1.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function类型"><span class="nav-number">1.4.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部的arguments对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">函数内部的arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">函数的属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.5.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式的对比"><span class="nav-number">1.5.2.</span> <span class="nav-text">两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例属性"><span class="nav-number">1.5.3.</span> <span class="nav-text">RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">RegExp实例方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-引用类型"><span class="nav-number">1.</span> <span class="nav-text">第五章 引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object类型"><span class="nav-number">1.1.</span> <span class="nav-text">Object类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array类型"><span class="nav-number">1.2.</span> <span class="nav-text">Array类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测数组"><span class="nav-number">1.2.1.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代方法"><span class="nav-number">1.2.7.</span> <span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">归并方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date类型"><span class="nav-number">1.3.</span> <span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function类型"><span class="nav-number">1.4.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部的arguments对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">函数内部的arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">函数的属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp类型"><span class="nav-number">1.5.</span> <span class="nav-text">RegExp类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建正则表达式的两种方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建正则表达式的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用字面量形式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">1.使用字面量形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用RegExp构造函数"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">2.使用RegExp构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式的对比"><span class="nav-number">1.5.2.</span> <span class="nav-text">两种方式的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例属性"><span class="nav-number">1.5.3.</span> <span class="nav-text">RegExp实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp实例方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">RegExp实例方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.6.</span> <span class="nav-text">基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number类型"><span class="nav-number">1.6.1.</span> <span class="nav-text">Number类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化字符串"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">格式化字符串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String类型"><span class="nav-number">1.6.2.</span> <span class="nav-text">String类型</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
