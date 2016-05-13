@@ -1,0 +1,706 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="高程笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="BOM中的对象核心对象:window对象  全局作用域
+  在全局作用域中声明的变量函数都会变成window对象的属性和方法
+  但是只有直接在window对象上定义的属性可以通过delete删除
+  因为使用var定义的window属性的[[Configurable]]属性的值是false
+  [[Configurable]]表示能否通过delete删除属性,直接在对象上定义的属性默认值为tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript高级程序设计第八章笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/JavaScript高级程序设计第八章笔记/index.html">
+<meta property="og:site_name" content="Chenwei Zhao's blog">
+<meta property="og:description" content="BOM中的对象核心对象:window对象  全局作用域
+  在全局作用域中声明的变量函数都会变成window对象的属性和方法
+  但是只有直接在window对象上定义的属性可以通过delete删除
+  因为使用var定义的window属性的[[Configurable]]属性的值是false
+  [[Configurable]]表示能否通过delete删除属性,直接在对象上定义的属性默认值为tru">
+<meta property="og:updated_time" content="2016-05-13T09:07:13.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript高级程序设计第八章笔记">
+<meta name="twitter:description" content="BOM中的对象核心对象:window对象  全局作用域
+  在全局作用域中声明的变量函数都会变成window对象的属性和方法
+  但是只有直接在window对象上定义的属性可以通过delete删除
+  因为使用var定义的window属性的[[Configurable]]属性的值是false
+  [[Configurable]]表示能否通过delete删除属性,直接在对象上定义的属性默认值为tru">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript高级程序设计第八章笔记 | Chenwei Zhao's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chenwei Zhao's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">good good study day day up</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript高级程序设计第八章笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-13T17:00:07+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="BOM中的对象"><a href="#BOM中的对象" class="headerlink" title="BOM中的对象"></a>BOM中的对象</h1><h2 id="核心对象-window对象"><a href="#核心对象-window对象" class="headerlink" title="核心对象:window对象"></a>核心对象:window对象</h2><p>  全局作用域</p>
+<p>  在全局作用域中声明的变量函数都会变成window对象的属性和方法</p>
+<p>  但是只有直接在window对象上定义的属性可以通过delete删除</p>
+<p>  因为使用var定义的window属性的[[Configurable]]属性的值是false</p>
+<p>  [[Configurable]]表示能否通过delete删除属性,直接在对象上定义的属性默认值为true</p>
+<pre><code>var age=29;
+window.color=&quot;red&quot;;
+delete window.age;
+delete window.color;
+
+function t(){
+  var a=10;
+  return function(){
+    return a;
+  }
+  delete a;
+}
+</code></pre><p>可以通过window知道某个可能未声明的变量是否存在</p>
+<pre><code>var newValue=oldValue;//报错
+var newValue=window.oldValue;//undefined
+</code></pre><p>窗口位置</p>
+<pre><code>var leftPos=(typeof window.screenLeft == &quot;number&quot;)?window.screenLeft:window.screenX;//窗口相对于屏幕左边的位置
+var rightPos=(typeof window.screenRight==&quot;number&quot;)?window.screenRight:window.screenY;//窗口相对于屏幕右边的位置
+</code></pre><p>窗口大小</p>
+<p>innerWidth,innerHeight,outerWidth,outerHeight</p>
+<pre><code>alert(window.innerWidth===window.outerWidth);//true
+</code></pre><p>导航和打开窗口</p>
+<pre><code>var bdWin=window.open(&quot;http://www.baidu.com&quot;,&quot;_blank&quot;);
+if(bdWin==null){
+  alert(&quot;blocked!&quot;);
+}
+</code></pre><p>超时调用</p>
+<pre><code>var timeoutId=setTimeout(function(){
+  alert(&quot;hello world&quot;);
+},1000);
+clearTimeout(timeoutId);
+</code></pre><p>间歇调用</p>
+<pre><code>var num1=0;
+var max=10;
+var intervalId=null;
+
+function incrementNumber(){
+  num1++;
+  console.log(num1);
+  if(num1==max){
+    clearInterval(intervalId);
+    alert(&quot;Done&quot;);
+  }
+}
+intervalId=setInterval(incrementNumber,500);
+</code></pre><p>最好用超时调用模拟间歇调用,因为使用间歇调用很可能会有后一个间歇调用在前一个间歇调用结束之前启动的情况</p>
+<pre><code>var num=0;
+var max=10;
+
+function incrementNumber(){
+  console.log(num);
+  num++;
+  if(num&lt;max){
+    setTimeout(incrementNumber,500);
+  }else{
+    alert(&quot;Done&quot;);
+  }
+}
+setTimeout(incrementNumber,500);
+</code></pre><p>系统对话框</p>
+<pre><code>/*confirm*/
+if(confirm(&quot;Are you sure?&quot;)){
+  window.location.href=&quot;http://www.baidu.com&quot;;
+}else{
+  window.location.href=&quot;http://www.youku.com&quot;;
+}
+
+/*
+  如果用户单击了OK,prompt返回文本输入域的值否则返回null
+*/
+var result=prompt(&quot;What&apos;s your name?&quot;,&quot;Michael&quot;);
+if(result!==null){
+  alert(&quot;Welcome, &quot;+result);
+}
+</code></pre><h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><p>document.location和window.location引用的是同一个对象</p>
+<h3 id="封装一个解析查询字符串的函数吧"><a href="#封装一个解析查询字符串的函数吧" class="headerlink" title="封装一个解析查询字符串的函数吧"></a>封装一个解析查询字符串的函数吧</h3><pre><code>//?name=&quot;zhangsan&quot;&amp;age=20
+//自己写的
+function getQueryStringArgs(){
+  var qs=window.location.search.length&gt;0?location.search.substring(1):&quot;&quot;;
+  console.log(qs.length);
+  if(qs.length&gt;0){
+    var sps=qs.split(&quot;&amp;&quot;);
+    var items=null,name=null,value=null,i=0;
+    var args={};
+    for(i=0;i&lt;sps.length;i++){
+      items=sps[i].split(&quot;=&quot;);
+      name=decodeURIComponent(items[0]);
+      value=decodeURIComponent(items[1]);
+      if(name.length&gt;0){
+        args[name]=value;
+      }
+    }
+  }
+  return args;
+}
+
+
+//书上的
+function getQueryStringArgs(){
+  var qs=location.search.length&gt;0?location.search.substring(1):&quot;&quot;;
+
+  args={};
+
+  items=qs.length?qs.split(&quot;&amp;&quot;):[];
+
+  item=null,name=null,value=null;
+
+  i=0;
+  len=items.length;
+  for(i=0;i&lt;len;i++){
+    item=items[i].split(&quot;=&quot;);
+    name=decodeURIComponent(item[0]);
+    value=decodeURIComponent(item[1]);
+    if(name.length&gt;0){
+      args[name]=value;
+    }
+  }
+  return args;
+}
+function getAll(){
+  for(var key in args){
+    console.log(key+&quot; &quot;+args[key]);
+  }
+}
+</code></pre><h3 id="改变浏览器的位置"><a href="#改变浏览器的位置" class="headerlink" title="改变浏览器的位置"></a>改变浏览器的位置</h3><p>location.assign(“<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“);</p>
+<p>在使用window.location=”<a href="http://www.baidu.com&quot;和location.href=&quot;http://www.baidu.com&quot;时" target="_blank" rel="external">http://www.baidu.com&quot;和location.href=&quot;http://www.baidu.com&quot;时</a>,</p>
+<p>会调用location.assign()方法</p>
+<p>使用location.replace()方法可以改变浏览器位置并不产生新的浏览记录,但是无法点击后退按钮</p>
+<p>使用location.reload()会重新加载(可能从缓存中加载)</p>
+<p>location.reload(true);从服务器中加载</p>
+<h2 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h2><h3 id="检测插件"><a href="#检测插件" class="headerlink" title="检测插件"></a>检测插件</h3><pre><code>//只能在非IE中使用
+function checkPlugins(){
+  var len=navigator.plugins.length;
+  var plugins=navigator.plugins;
+  for(var i=0;i&lt;len;i++){
+    console.log(plugins[i]);
+  }
+}
+</code></pre><h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><pre><code>function listHistory(){
+  var history=window.history;
+  for(var key in history){
+    console.log(key+&quot; &quot;+history[key]);
+  }
+}
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/高程笔记/" rel="tag">#高程笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/12/JavaScript高级程序设计第七章笔记/" rel="next" title="JavaScript高级程序设计第七章笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第七章笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/13/JavaScript高级程序设计第十一章笔记/" rel="prev" title="JavaScript高级程序设计第十一章笔记">
+                JavaScript高级程序设计第十一章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Zhao Chenwei" />
+          <p class="site-author-name" itemprop="name">Zhao Chenwei</p>
+          <p class="site-description motion-element" itemprop="description">good good study day day up</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM中的对象"><span class="nav-number">1.</span> <span class="nav-text">BOM中的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心对象-window对象"><span class="nav-number">1.1.</span> <span class="nav-text">核心对象:window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location对象"><span class="nav-number">1.2.</span> <span class="nav-text">location对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装一个解析查询字符串的函数吧"><span class="nav-number">1.2.1.</span> <span class="nav-text">封装一个解析查询字符串的函数吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变浏览器的位置"><span class="nav-number">1.2.2.</span> <span class="nav-text">改变浏览器的位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigator对象"><span class="nav-number">1.3.</span> <span class="nav-text">navigator对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测插件"><span class="nav-number">1.3.1.</span> <span class="nav-text">检测插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history对象"><span class="nav-number">1.4.</span> <span class="nav-text">history对象</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Chenwei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -229,6 +229,522 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/13/JavaScript高级程序设计第十一章笔记/" itemprop="url">
+                  JavaScript高级程序设计第十一章笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-13T17:08:49+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h2><p>Element Traversal API为DOM元素添加了以下5个属性</p>
+<p>childElementCount</p>
+<p>firstElementChild</p>
+<p>lastElementChild</p>
+<p>previousElementSibling</p>
+<p>nextElementSibling</p>
+<p>从此我们不再需要为文本节点困扰了~</p>
+<pre><code>//遍历某元素的所有子元素
+var i,len,child=element.firstElementChild;
+while(child!=element.lastElementChild){
+  processChild(child);
+  child=child.nextElementChild;
+}
+</code></pre><h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="扩充"><a href="#扩充" class="headerlink" title="扩充"></a>扩充</h3><h4 id="试着删除一个类名"><a href="#试着删除一个类名" class="headerlink" title="试着删除一个类名"></a>试着删除一个类名</h4><pre><code>function removeClassName(node,className){
+  ///\s+/匹配任意空白字符
+  var classNames=node.className.split(/\s+/);
+  var pos,i,len;
+  for(i=0,len=classNames.length;i&lt;len;i++){
+    if(classNames[i]==className){
+      pos=i;
+      break;
+    }
+  }
+
+  classNames.splice(i,1);
+  node.className=classNames.join(&quot; &quot;);
+}
+</code></pre><h4 id="使用DOMTokenList的实例classList"><a href="#使用DOMTokenList的实例classList" class="headerlink" title="使用DOMTokenList的实例classList"></a>使用DOMTokenList的实例classList</h4><pre><code>//迭代类名
+for(var i=0,len=div.classList.length;i&lt;len;i++){
+  doSomething(div.classList[i]);
+}
+</code></pre><h3 id="焦点管理"><a href="#焦点管理" class="headerlink" title="焦点管理"></a>焦点管理</h3><p>在文档刚刚加载完成时,document.activeElement中保存的是document.body的引用</p>
+<p>文档加载期间,值为null</p>
+<h3 id="自定义数据属性"><a href="#自定义数据属性" class="headerlink" title="自定义数据属性"></a>自定义数据属性</h3><p>HTML5规定添加非标准的属性需要添加前缀data-</p>
+<p>添加自定义属性后,可以通过dataset属性访问自定义属性的值</p>
+<pre><code>var node=document.getElementById(&quot;node&quot;);
+node.setAttribute(&quot;data-myname&quot;,&quot;zhangsan&quot;);
+node.setAttribute(&quot;data-myage&quot;,20);
+
+alert(node.dataset.myname);//zhangsan
+alert(node.dataset.myage);//20
+</code></pre><h3 id="innerHTML和outerHTML"><a href="#innerHTML和outerHTML" class="headerlink" title="innerHTML和outerHTML"></a>innerHTML和outerHTML</h3><p>使用innerHTML直接插入HTML字符串很简单,但是要注意的一点是,大多数浏览器中,通过innerHTML插入<script></p>
+<p>标签并不会执行其中的脚本</p>
+<p>只有IE8以及之前的版本可以执行</p>
+<p>但是有两个条件,一个是<script>元素必须指定defer属性,二是<script>标签必须在”有作用域的元素”之后</p>
+<p>有三种方法可以正常执行</p>
+<p>一般下面这种方法是首选方法</p>
+<p>div.innerHTML=”<input type=\"hidden\"><script defer>alert(\”hi\”);</script>“;</p>
+<h4 id="内存与性能问题"><a href="#内存与性能问题" class="headerlink" title="内存与性能问题"></a>内存与性能问题</h4><pre><code>//年少无知的我就这么写过......
+for(var i=0,len=values.length;i&lt;len;i++){
+  ul.innerHTML+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+}
+
+//这种方法....完美啊
+var itemsHtml=&quot;&quot;;
+for(var i=0,len=values.length;i&lt;len;i++){
+  items+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+}
+ul.innerHTML=itemsHtml;
+</code></pre><h2 id="专有扩展"><a href="#专有扩展" class="headerlink" title="专有扩展"></a>专有扩展</h2><h3 id="children"><a href="#children" class="headerlink" title="children"></a>children</h3><p>children是HTMLCollection的实例,只包含元素中还是元素的子节点</p>
+<p>IE8之前的children也会包含注释节点</p>
+<h3 id="innerText和outerText"><a href="#innerText和outerText" class="headerlink" title="innerText和outerText"></a>innerText和outerText</h3><p>假如有下面这样一种情况</p>
+<pre><code>&lt;div&gt;
+  &lt;p&gt;Hello World&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+    &lt;li&gt;4&lt;/li&gt;
+    &lt;li&gt;5&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+
+var div=document.getElementsByTagName(&quot;div&quot;)[0];
+//巧妙地删除了div中的html标签
+div.innerText=div.innerText;
+
+
+//确保跨浏览器兼容的方法
+function getInnerText(element){
+  return (typeof element.textContent==&quot;string&quot;)?element.textContent:element.innerText;
+}
+
+function setInnerText(element,text){
+  if(typeof element.textContent==&quot;string&quot;){
+    element.textContent=text;
+  }else{
+    element.innerText=text;
+  }
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/13/JavaScript高级程序设计第八章笔记/" itemprop="url">
+                  JavaScript高级程序设计第八章笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-13T17:00:07+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="BOM中的对象"><a href="#BOM中的对象" class="headerlink" title="BOM中的对象"></a>BOM中的对象</h1><h2 id="核心对象-window对象"><a href="#核心对象-window对象" class="headerlink" title="核心对象:window对象"></a>核心对象:window对象</h2><p>  全局作用域</p>
+<p>  在全局作用域中声明的变量函数都会变成window对象的属性和方法</p>
+<p>  但是只有直接在window对象上定义的属性可以通过delete删除</p>
+<p>  因为使用var定义的window属性的[[Configurable]]属性的值是false</p>
+<p>  [[Configurable]]表示能否通过delete删除属性,直接在对象上定义的属性默认值为true</p>
+<pre><code>var age=29;
+window.color=&quot;red&quot;;
+delete window.age;
+delete window.color;
+
+function t(){
+  var a=10;
+  return function(){
+    return a;
+  }
+  delete a;
+}
+</code></pre><p>可以通过window知道某个可能未声明的变量是否存在</p>
+<pre><code>var newValue=oldValue;//报错
+var newValue=window.oldValue;//undefined
+</code></pre><p>窗口位置</p>
+<pre><code>var leftPos=(typeof window.screenLeft == &quot;number&quot;)?window.screenLeft:window.screenX;//窗口相对于屏幕左边的位置
+var rightPos=(typeof window.screenRight==&quot;number&quot;)?window.screenRight:window.screenY;//窗口相对于屏幕右边的位置
+</code></pre><p>窗口大小</p>
+<p>innerWidth,innerHeight,outerWidth,outerHeight</p>
+<pre><code>alert(window.innerWidth===window.outerWidth);//true
+</code></pre><p>导航和打开窗口</p>
+<pre><code>var bdWin=window.open(&quot;http://www.baidu.com&quot;,&quot;_blank&quot;);
+if(bdWin==null){
+  alert(&quot;blocked!&quot;);
+}
+</code></pre><p>超时调用</p>
+<pre><code>var timeoutId=setTimeout(function(){
+  alert(&quot;hello world&quot;);
+},1000);
+clearTimeout(timeoutId);
+</code></pre><p>间歇调用</p>
+<pre><code>var num1=0;
+var max=10;
+var intervalId=null;
+
+function incrementNumber(){
+  num1++;
+  console.log(num1);
+  if(num1==max){
+    clearInterval(intervalId);
+    alert(&quot;Done&quot;);
+  }
+}
+intervalId=setInterval(incrementNumber,500);
+</code></pre><p>最好用超时调用模拟间歇调用,因为使用间歇调用很可能会有后一个间歇调用在前一个间歇调用结束之前启动的情况</p>
+<pre><code>var num=0;
+var max=10;
+
+function incrementNumber(){
+  console.log(num);
+  num++;
+  if(num&lt;max){
+    setTimeout(incrementNumber,500);
+  }else{
+    alert(&quot;Done&quot;);
+  }
+}
+setTimeout(incrementNumber,500);
+</code></pre><p>系统对话框</p>
+<pre><code>/*confirm*/
+if(confirm(&quot;Are you sure?&quot;)){
+  window.location.href=&quot;http://www.baidu.com&quot;;
+}else{
+  window.location.href=&quot;http://www.youku.com&quot;;
+}
+
+/*
+  如果用户单击了OK,prompt返回文本输入域的值否则返回null
+*/
+var result=prompt(&quot;What&apos;s your name?&quot;,&quot;Michael&quot;);
+if(result!==null){
+  alert(&quot;Welcome, &quot;+result);
+}
+</code></pre><h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><p>document.location和window.location引用的是同一个对象</p>
+<h3 id="封装一个解析查询字符串的函数吧"><a href="#封装一个解析查询字符串的函数吧" class="headerlink" title="封装一个解析查询字符串的函数吧"></a>封装一个解析查询字符串的函数吧</h3><pre><code>//?name=&quot;zhangsan&quot;&amp;age=20
+//自己写的
+function getQueryStringArgs(){
+  var qs=window.location.search.length&gt;0?location.search.substring(1):&quot;&quot;;
+  console.log(qs.length);
+  if(qs.length&gt;0){
+    var sps=qs.split(&quot;&amp;&quot;);
+    var items=null,name=null,value=null,i=0;
+    var args={};
+    for(i=0;i&lt;sps.length;i++){
+      items=sps[i].split(&quot;=&quot;);
+      name=decodeURIComponent(items[0]);
+      value=decodeURIComponent(items[1]);
+      if(name.length&gt;0){
+        args[name]=value;
+      }
+    }
+  }
+  return args;
+}
+
+
+//书上的
+function getQueryStringArgs(){
+  var qs=location.search.length&gt;0?location.search.substring(1):&quot;&quot;;
+
+  args={};
+
+  items=qs.length?qs.split(&quot;&amp;&quot;):[];
+
+  item=null,name=null,value=null;
+
+  i=0;
+  len=items.length;
+  for(i=0;i&lt;len;i++){
+    item=items[i].split(&quot;=&quot;);
+    name=decodeURIComponent(item[0]);
+    value=decodeURIComponent(item[1]);
+    if(name.length&gt;0){
+      args[name]=value;
+    }
+  }
+  return args;
+}
+function getAll(){
+  for(var key in args){
+    console.log(key+&quot; &quot;+args[key]);
+  }
+}
+</code></pre><h3 id="改变浏览器的位置"><a href="#改变浏览器的位置" class="headerlink" title="改变浏览器的位置"></a>改变浏览器的位置</h3><p>location.assign(“<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“);</p>
+<p>在使用window.location=”<a href="http://www.baidu.com&quot;和location.href=&quot;http://www.baidu.com&quot;时" target="_blank" rel="external">http://www.baidu.com&quot;和location.href=&quot;http://www.baidu.com&quot;时</a>,</p>
+<p>会调用location.assign()方法</p>
+<p>使用location.replace()方法可以改变浏览器位置并不产生新的浏览记录,但是无法点击后退按钮</p>
+<p>使用location.reload()会重新加载(可能从缓存中加载)</p>
+<p>location.reload(true);从服务器中加载</p>
+<h2 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h2><h3 id="检测插件"><a href="#检测插件" class="headerlink" title="检测插件"></a>检测插件</h3><pre><code>//只能在非IE中使用
+function checkPlugins(){
+  var len=navigator.plugins.length;
+  var plugins=navigator.plugins;
+  for(var i=0;i&lt;len;i++){
+    console.log(plugins[i]);
+  }
+}
+</code></pre><h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><pre><code>function listHistory(){
+  var history=window.history;
+  for(var key in history){
+    console.log(key+&quot; &quot;+history[key]);
+  }
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/12/JavaScript高级程序设计第七章笔记/" itemprop="url">
+                  JavaScript高级程序设计第七章笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-12T18:12:00+08:00" content="2016-05-12">
+              2016-05-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/06/JavaScript高级程序设计第六章笔记/" itemprop="url">
                   JavaScript高级程序设计第六章笔记
                 </a>
@@ -1309,7 +1825,7 @@ alert(num.toExponential(1));//1.0e+1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

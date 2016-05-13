@@ -80,34 +80,40 @@
 
 
 
-<meta name="description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
+<meta name="description" content="元素遍历Element Traversal API为DOM元素添加了以下5个属性
+childElementCount
+firstElementChild
+lastElementChild
+previousElementSibling
+nextElementSibling
+从此我们不再需要为文本节点困扰了~
+//遍历某元素的所有子元素
+var i,len,child=element.firstEle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript高级程序设计第三章笔记">
-<meta property="og:url" content="http://yoursite.com/2016/04/29/JavaScript高级程序设计第三章笔记/index.html">
+<meta property="og:title" content="JavaScript高级程序设计第十一章笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/JavaScript高级程序设计第十一章笔记/index.html">
 <meta property="og:site_name" content="Chenwei Zhao's blog">
-<meta property="og:description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
-<meta property="og:updated_time" content="2016-05-06T15:56:25.892Z">
+<meta property="og:description" content="元素遍历Element Traversal API为DOM元素添加了以下5个属性
+childElementCount
+firstElementChild
+lastElementChild
+previousElementSibling
+nextElementSibling
+从此我们不再需要为文本节点困扰了~
+//遍历某元素的所有子元素
+var i,len,child=element.firstEle">
+<meta property="og:updated_time" content="2016-05-13T09:11:40.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript高级程序设计第三章笔记">
-<meta name="twitter:description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
+<meta name="twitter:title" content="JavaScript高级程序设计第十一章笔记">
+<meta name="twitter:description" content="元素遍历Element Traversal API为DOM元素添加了以下5个属性
+childElementCount
+firstElementChild
+lastElementChild
+previousElementSibling
+nextElementSibling
+从此我们不再需要为文本节点困扰了~
+//遍历某元素的所有子元素
+var i,len,child=element.firstEle">
 
 
 
@@ -125,7 +131,7 @@ Number类型可以表示所有数值
   };
 </script>
 
-  <title> JavaScript高级程序设计第三章笔记 | Chenwei Zhao's blog </title>
+  <title> JavaScript高级程序设计第十一章笔记 | Chenwei Zhao's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -245,7 +251,7 @@ Number类型可以表示所有数值
             
             
               
-                JavaScript高级程序设计第三章笔记
+                JavaScript高级程序设计第十一章笔记
               
             
           </h1>
@@ -257,8 +263,8 @@ Number类型可以表示所有数值
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
-              2016-04-29
+            <time itemprop="dateCreated" datetime="2016-05-13T17:08:49+08:00" content="2016-05-13">
+              2016-05-13
             </time>
           </span>
 
@@ -284,48 +290,96 @@ Number类型可以表示所有数值
       
 
       
-        <p>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型</p>
-<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String</p>
-<p>Number类型可以表示所有数值</p>
-<p>最大值:Number.MAX_VALUE</p>
-<p>最小值:Number.MIN_VALUE</p>
-<p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> console.log(Number.MAX_VALUE);//1.7976931348623157e+308</span><br><span class="line">console.log(Number.MIN_VALUE);//5e-324</span><br><span class="line"> var result=Number.MAX_VALUE+Number.MAX_VALUE;</span><br><span class="line"> console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity</span><br></pre></td></tr></table></figure>
-<p>可以使用isFinite()函数确定一个数是不是有穷的</p>
-<p>另外,ES6还引入了两个常量</p>
-<p>Number.MIN_SAFE_INTEGER</p>
-<p>Number.MAX_SAFE_INTEGER</p>
-<p>分别表示-2^53+1和2^53-1</p>
-<p>JavaScript内置的最大的整数是2的53次方</p>
-<p>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
-<pre><code>console.log(Number.MIN_SAFE_INTEGER);
-console.log(Number.MAX_SAFE_INTEGER);
-</code></pre><h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型:"></a>复杂数据类型:</h2><p>Object</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</p>
-<p>在函数体内可以通过arguments对象来访问参数数组</p>
-<p>arguments的值永远与对应命名参数的值保持同步</p>
-<pre><code>function doAdd(num1,num2){
-    arguments[1]=10;//arguments[1]被赋值为10,同时num2的值变为10
-    console.log(arguments[0]+num2);
+        <h2 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h2><p>Element Traversal API为DOM元素添加了以下5个属性</p>
+<p>childElementCount</p>
+<p>firstElementChild</p>
+<p>lastElementChild</p>
+<p>previousElementSibling</p>
+<p>nextElementSibling</p>
+<p>从此我们不再需要为文本节点困扰了~</p>
+<pre><code>//遍历某元素的所有子元素
+var i,len,child=element.firstElementChild;
+while(child!=element.lastElementChild){
+  processChild(child);
+  child=child.nextElementChild;
 }
-doAdd(1,2);//11
-</code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<pre><code>function doAdd(num1){
-    arguments[1]=10;
-    console.log(arguments[0]+arguments[1]);
-}
-doAdd(2);//12
-</code></pre><p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
-<p>但是可以通过如下方式模仿方法的重载</p>
-<pre><code>function doAdd(){
-    if(arguments.length==1){
-        console.log(&quot;只有一个参数&quot;);
-    }else if(arguments.length==2){
-        console.log(&quot;有两个参数&quot;);
-    }else{
-        console.log(&quot;不知道有多少个参数&quot;);
+</code></pre><h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="扩充"><a href="#扩充" class="headerlink" title="扩充"></a>扩充</h3><h4 id="试着删除一个类名"><a href="#试着删除一个类名" class="headerlink" title="试着删除一个类名"></a>试着删除一个类名</h4><pre><code>function removeClassName(node,className){
+  ///\s+/匹配任意空白字符
+  var classNames=node.className.split(/\s+/);
+  var pos,i,len;
+  for(i=0,len=classNames.length;i&lt;len;i++){
+    if(classNames[i]==className){
+      pos=i;
+      break;
     }
+  }
+
+  classNames.splice(i,1);
+  node.className=classNames.join(&quot; &quot;);
+}
+</code></pre><h4 id="使用DOMTokenList的实例classList"><a href="#使用DOMTokenList的实例classList" class="headerlink" title="使用DOMTokenList的实例classList"></a>使用DOMTokenList的实例classList</h4><pre><code>//迭代类名
+for(var i=0,len=div.classList.length;i&lt;len;i++){
+  doSomething(div.classList[i]);
+}
+</code></pre><h3 id="焦点管理"><a href="#焦点管理" class="headerlink" title="焦点管理"></a>焦点管理</h3><p>在文档刚刚加载完成时,document.activeElement中保存的是document.body的引用</p>
+<p>文档加载期间,值为null</p>
+<h3 id="自定义数据属性"><a href="#自定义数据属性" class="headerlink" title="自定义数据属性"></a>自定义数据属性</h3><p>HTML5规定添加非标准的属性需要添加前缀data-</p>
+<p>添加自定义属性后,可以通过dataset属性访问自定义属性的值</p>
+<pre><code>var node=document.getElementById(&quot;node&quot;);
+node.setAttribute(&quot;data-myname&quot;,&quot;zhangsan&quot;);
+node.setAttribute(&quot;data-myage&quot;,20);
+
+alert(node.dataset.myname);//zhangsan
+alert(node.dataset.myage);//20
+</code></pre><h3 id="innerHTML和outerHTML"><a href="#innerHTML和outerHTML" class="headerlink" title="innerHTML和outerHTML"></a>innerHTML和outerHTML</h3><p>使用innerHTML直接插入HTML字符串很简单,但是要注意的一点是,大多数浏览器中,通过innerHTML插入<script></p>
+<p>标签并不会执行其中的脚本</p>
+<p>只有IE8以及之前的版本可以执行</p>
+<p>但是有两个条件,一个是<script>元素必须指定defer属性,二是<script>标签必须在”有作用域的元素”之后</p>
+<p>有三种方法可以正常执行</p>
+<p>一般下面这种方法是首选方法</p>
+<p>div.innerHTML=”<input type=\"hidden\"><script defer>alert(\”hi\”);</script>“;</p>
+<h4 id="内存与性能问题"><a href="#内存与性能问题" class="headerlink" title="内存与性能问题"></a>内存与性能问题</h4><pre><code>//年少无知的我就这么写过......
+for(var i=0,len=values.length;i&lt;len;i++){
+  ul.innerHTML+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+}
+
+//这种方法....完美啊
+var itemsHtml=&quot;&quot;;
+for(var i=0,len=values.length;i&lt;len;i++){
+  items+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+}
+ul.innerHTML=itemsHtml;
+</code></pre><h2 id="专有扩展"><a href="#专有扩展" class="headerlink" title="专有扩展"></a>专有扩展</h2><h3 id="children"><a href="#children" class="headerlink" title="children"></a>children</h3><p>children是HTMLCollection的实例,只包含元素中还是元素的子节点</p>
+<p>IE8之前的children也会包含注释节点</p>
+<h3 id="innerText和outerText"><a href="#innerText和outerText" class="headerlink" title="innerText和outerText"></a>innerText和outerText</h3><p>假如有下面这样一种情况</p>
+<pre><code>&lt;div&gt;
+  &lt;p&gt;Hello World&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+    &lt;li&gt;4&lt;/li&gt;
+    &lt;li&gt;5&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+
+var div=document.getElementsByTagName(&quot;div&quot;)[0];
+//巧妙地删除了div中的html标签
+div.innerText=div.innerText;
+
+
+//确保跨浏览器兼容的方法
+function getInnerText(element){
+  return (typeof element.textContent==&quot;string&quot;)?element.textContent:element.innerText;
+}
+
+function setInnerText(element,text){
+  if(typeof element.textContent==&quot;string&quot;){
+    element.textContent=text;
+  }else{
+    element.innerText=text;
+  }
 }
 </code></pre>
       
@@ -356,17 +410,13 @@ doAdd(2);//12
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/28/JavaScript高级程序设计第五章笔记/" rel="next" title="JavaScript高级程序设计第五章笔记">
-                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第五章笔记
+              <a href="/2016/05/13/JavaScript高级程序设计第八章笔记/" rel="next" title="JavaScript高级程序设计第八章笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第八章笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/06/JavaScript高级程序设计第六章笔记/" rel="prev" title="JavaScript高级程序设计第六章笔记">
-                JavaScript高级程序设计第六章笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +525,7 @@ doAdd(2);//12
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂数据类型"><span class="nav-number">2.</span> <span class="nav-text">复杂数据类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数重载"><span class="nav-number">4.</span> <span class="nav-text">函数重载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元素遍历"><span class="nav-number">1.</span> <span class="nav-text">元素遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5"><span class="nav-number">2.</span> <span class="nav-text">HTML5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩充"><span class="nav-number">2.1.</span> <span class="nav-text">扩充</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试着删除一个类名"><span class="nav-number">2.1.1.</span> <span class="nav-text">试着删除一个类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用DOMTokenList的实例classList"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用DOMTokenList的实例classList</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#焦点管理"><span class="nav-number">2.2.</span> <span class="nav-text">焦点管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义数据属性"><span class="nav-number">2.3.</span> <span class="nav-text">自定义数据属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerHTML和outerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">innerHTML和outerHTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存与性能问题"><span class="nav-number">2.4.1.</span> <span class="nav-text">内存与性能问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专有扩展"><span class="nav-number">3.</span> <span class="nav-text">专有扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#children"><span class="nav-number">3.1.</span> <span class="nav-text">children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#innerText和outerText"><span class="nav-number">3.2.</span> <span class="nav-text">innerText和outerText</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
