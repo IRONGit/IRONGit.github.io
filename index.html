@@ -699,9 +699,10 @@ function checkPlugins(){
             <h1 id="定义函数的两种方式"><a href="#定义函数的两种方式" class="headerlink" title="定义函数的两种方式"></a>定义函数的两种方式</h1><h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><pre><code>function functionName(arg0,arg1,arg2){
 
 }
-</code></pre><h2 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h2><p>  var functionName=function(arg0,arg1,arg2){</p>
-<p>  }</p>
-<p>函数有一个非标准的name属性,可以通过functionName.name访问到函数指定的名字</p>
+</code></pre><h2 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h2><pre><code>var functionName=function(arg0,arg1,arg2){
+
+}
+</code></pre><p>函数有一个非标准的name属性,可以通过functionName.name访问到函数指定的名字</p>
 <h2 id="两种方式的区别"><a href="#两种方式的区别" class="headerlink" title="两种方式的区别"></a>两种方式的区别</h2><p>在执行代码之前,会先读取函数声明,因此,函数调用可以放在函数声明之前</p>
 <p>但是使用函数表达式就不行了,先调用后声明会导致出错</p>
 <pre><code>//返回一个匿名函数
