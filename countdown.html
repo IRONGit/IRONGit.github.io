@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<body style="height:500px">
+	<canvas id ="canvas" style="height:100%"></canvas>
+	<script src="digit.js"></script>
+	<script>
+		var balls=[];
+		var currentDate=new Date();
+		var currentSecond=currentDate.getSeconds();
+		var currentMinute=currentDate.getMinutes();
+		var currentHour=currentDate.getHours();
+		var WINDOW_WIDTH=document.body.clientWidth;
+		var WINDOW_HEIGHT=document.body.clientHeight;
+		
+		var MARGINLEFT=Math.round(WINDOW_WIDTH/10);
+		var MARGINTOP=Math.round(WINDOW_HEIGHT/5);
+		var RADIUS=Math.round(WINDOW_WIDTH*4/5/124)-1;
+		const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]
+
+
+		window.onload=function(){
+			var canvas=document.getElementById("canvas");
+			canvas.width=WINDOW_WIDTH;
+			canvas.height=WINDOW_HEIGHT;
+
+			if(canvas.getContext("2d")!=null){
+				var context=canvas.getContext("2d");
+				setInterval(function(){
+					generate(context);
+					updateBalls();
+				},50);
+			}
+		};
+		function update(x,y,second){
+			for(var i=0;i<digit[second].length;i++){
+				for(var j=0;j<digit[second][i].length;j++){
+					if(digit[second][i][j]==1){
+						var ball={
+							x:x+j*2*(RADIUS+1),
+							y:y+i*2*(RADIUS+1),
+							color:colors[Math.floor(Math.random()*colors.length)],
+							g:1.5+Math.random(),
+							vx:Math.pow(-1,Math.ceil((Math.random()*1000)))*4,
+							vy:-10
+						};
+						balls.push(ball);
+					}
+				}
+			}
+		}
+		function updateBalls(){
+			for(var i=0;i<balls.length;i++){
+				balls[i].x+=balls[i].vx;
+				balls[i].y+=balls[i].vy;
+				balls[i].vy+=balls[i].g;
+				if(balls[i].y>=WINDOW_HEIGHT-RADIUS){
+					balls[i].y=WINDOW_HEIGHT-RADIUS;
+					balls[i].vy=1/2*(-balls[i].vy);
+				}
+			}
+
+			//性能优化
+			var cnt=0;
+			for(var i=0;i<balls.length;i++){
+				if(balls[i].x>=RADIUS&&balls[i].x<=WINDOW_WIDTH-RADIUS){
+					balls[cnt++]=balls[i];
+				}
+			}
+			while(balls.length>cnt){
+				balls.pop();
+			}
+		}
+		function generateCharacter(context){
+			for(var i=0;i<kodaya.length;i++){
+				for(var j=0;j<kodaya[i].length;j++){
+					if(kodaya[i][j]==1){
+						context.beginPath();
+						context.arc(300+j*2*(RADIUS+1),300+i*2*(RADIUS+1),RADIUS,0,Math.PI*2);
+						context.closePath();
+						context.fill();
+					}
+				}
+			}
+		}
+		function generate(context){
+			context.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+			var date=new Date();
+			var hour=date.getHours();
+			var minute=date.getMinutes();
+			var second=date.getSeconds();
+			if(second!=currentSecond){
+				
+				update(MARGINLEFT+109*(RADIUS+1),MARGINTOP,second%10);
+
+				if((second-second%10)/10!=(currentSecond-currentSecond%10)/10){
+					update(MARGINLEFT+94*(RADIUS+1),MARGINTOP,minute%10);
+				}
+				
+				if(minute!=currentMinute){
+					update(MARGINLEFT+62*(RADIUS+1),MARGINTOP,minute%10);
+				}
+				if((minute-minute%10)/10!=(currentMinute-currentMinute%10)/10){
+					update(MARGINLEFT+47*(RADIUS+1),MARGINTOP,(currentMinute-currentMinute%10)/10);
+				}
+
+				if(hour!=currentHour){
+					update(MARGINLEFT,MARGINTOP,hour%10);
+				}
+				if((hour-hour%10)/10!=(currentHour-currentHour%10)/10){
+					update(MARGINLEFT+15*(RADIUS+1),MARGINTOP,hour%10);
+				}
+			}
+			currentSecond=second;
+			currentMinute=minute;
+			currentHour=hour;
+
+			generateNumber(MARGINLEFT,MARGINTOP,(hour-hour%10)/10,context);
+			generateNumber(MARGINLEFT+15*(RADIUS+1),MARGINTOP,hour%10,context);
+			
+
+			generateNumber(MARGINLEFT+31*(RADIUS+1),MARGINTOP,10,context);
+			generateNumber(MARGINLEFT+39*(RADIUS+1),MARGINTOP,10,context);
+
+
+			generateNumber(MARGINLEFT+47*(RADIUS+1),MARGINTOP,(minute-minute%10)/10,context);
+			generateNumber(MARGINLEFT+62*(RADIUS+1),MARGINTOP,minute%10,context);
+
+			generateNumber(MARGINLEFT+77*(RADIUS+1),MARGINTOP,10,context);
+			generateNumber(MARGINLEFT+86*(RADIUS+1),MARGINTOP,10,context);
+			
+			generateNumber(MARGINLEFT+94*(RADIUS+1),MARGINTOP,(second-second%10)/10,context);
+			generateNumber(MARGINLEFT+109*(RADIUS+1),MARGINTOP,second%10,context);
+			
+
+			//generateColorBall(context);
+
+			for(var i=0;i<balls.length;i++){
+				context.fillStyle=balls[i].color;
+				context.beginPath();
+				context.arc(balls[i].x,balls[i].y,RADIUS,0,2*Math.PI);
+				context.closePath();
+				context.fill();
+			}
+		}
+		function generateColorBall(context){
+			for(var i=0;i<balls.length;i++){
+				context.beginPath();
+				context.arc(balls[i].x,balls[i].y,RADIUS,0,2*Math.PI);
+				context.closePath();
+				context.fill();
+			}
+
+		}
+		function generateNumber(x,y,number,context){
+			context.fillStyle="blue";
+			for(var i=0;i<digit[number].length;i++){
+				for(var j=0;j<digit[number][i].length;j++){
+					if(digit[number][i][j]==1){			
+						context.beginPath();
+						context.arc(x+j*2*(RADIUS+1),y+i*2*(RADIUS+1),RADIUS,0,2*Math.PI);
+						context.closePath();			
+						context.fill();
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
