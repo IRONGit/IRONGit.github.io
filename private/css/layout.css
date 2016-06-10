@@ -1,0 +1,66 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+header{
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+header h1{
+	text-align: center;
+	margin: 20px auto;
+	font-weight: bold;
+	font-size: 40px;
+	font-family: Arial;
+}
+p{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	display: block;
+	margin: 20px auto;
+	/*font-family: Arial;*/
+}
+#newgame{
+	display: block;
+	font-family: Arial;
+	margin: 20px auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	background-color: rgb(159,139,119);
+	border-radius: 6px;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+}
+#gridContainer{
+	width: 500px;
+	height: 500px;
+	/*padding:20px; */
+	background-color: rgb(187,173,160);
+	border-radius: 10px;
+	margin: 0px auto;
+	position: relative;
+}
+.gridCells{
+	width: 100px;
+	height: 100px;
+	background-color: rgb(204,192,179);
+	border-radius: 10px;
+	position: absolute;
+}
+.numberCells{
+	position: absolute;
+	border-radius: 10px;
+	text-align: center;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 60px;
+	line-height: 100px;
+	background-color: red;
+}
