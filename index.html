@@ -229,6 +229,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/15/require-js-入门/" itemprop="url">
+                  require.js 入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T17:24:33+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="加载require-js"><a href="#加载require-js" class="headerlink" title="加载require.js"></a>加载require.js</h2><pre><code>&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>这条语句中的data-main定义了程序的主模块,类似于oop语言中的main函数</p>
+<h2 id="对模块加载的自定义"><a href="#对模块加载的自定义" class="headerlink" title="对模块加载的自定义"></a>对模块加载的自定义</h2><p>为了方便,可以为引入的模块定义别名,比如</p>
+<pre><code>requirejs.config({
+  paths:{
+    jquery:&apos;jquery-1.11.3&apos;
+  }
+})
+</code></pre><p>这段代码为js目录下的jquery-1.11.3.js文件定义的别名为jquery(不用写.js后缀)</p>
+<p>当然,如果js文件在别的目录中,还可以改变根目录</p>
+<pre><code>requirejs.config({
+    baseUrl:&quot;js/baseJs&quot;,
+    paths:{
+      jquery:&apos;jquery-1.11.3&apos;
+    }
+});
+</code></pre><h2 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h2><pre><code>//在myModule.js中
+define([&apos;jquery&apos;],function($){
+    function myModule(){
+
+    };
+    myModule.prototype.method=function(){
+
+    }
+    return{
+      myModule:myModule
+    }
+});
+</code></pre><p>可以通过define()自定义模块,第一个参数是一个数组,代表引入的模块,第二个参数是一个匿名的回调函数,</p>
+<p>匿名函数的参数的顺序是引入模块的引用的顺序</p>
+<h2 id="使用模块"><a href="#使用模块" class="headerlink" title="使用模块"></a>使用模块</h2><pre><code>requirejs([&apos;jquery&apos;,&apos;myModule&apos;],function($,mm){
+  new mm.myModule().method();
+});
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/07/box-shadow实现边框/" itemprop="url">
                   box-shadow实现边框
                 </a>
@@ -2265,7 +2390,7 @@ alert(num.toExponential(1));//1.0e+1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2275,7 +2400,7 @@ alert(num.toExponential(1));//1.0e+1
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
