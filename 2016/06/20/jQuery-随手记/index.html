@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="高程笔记," />
+  <meta name="keywords" content="锋利的jQuery笔记," />
 
 
 
@@ -80,34 +80,40 @@
 
 
 
-<meta name="description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
+<meta name="description" content="删除节点的方法
+remove()方法
+当使用remove()方法删除某个节点时,该节点所包含的所有后代节
+点将同时被删除,方法的返回值是一个指向被删除节点的引用,所以,
+可以在以后再使用这些元素
+
+detach()方法
+与remove()方法相同点:都是从DOM中去掉匹配的元素,并且将来可以再使用这些元素
+不同点:重新使用删除的元素时,之前绑定的事件还在,但是使用remove()方法删除元素则会使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript高级程序设计第三章笔记">
-<meta property="og:url" content="http://yoursite.com/2016/04/29/JavaScript高级程序设计第三章笔记/index.html">
+<meta property="og:title" content="jQuery 随手记">
+<meta property="og:url" content="http://yoursite.com/2016/06/20/jQuery-随手记/index.html">
 <meta property="og:site_name" content="Chenwei Zhao's blog">
-<meta property="og:description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
-<meta property="og:updated_time" content="2016-05-06T15:56:25.892Z">
+<meta property="og:description" content="删除节点的方法
+remove()方法
+当使用remove()方法删除某个节点时,该节点所包含的所有后代节
+点将同时被删除,方法的返回值是一个指向被删除节点的引用,所以,
+可以在以后再使用这些元素
+
+detach()方法
+与remove()方法相同点:都是从DOM中去掉匹配的元素,并且将来可以再使用这些元素
+不同点:重新使用删除的元素时,之前绑定的事件还在,但是使用remove()方法删除元素则会使">
+<meta property="og:updated_time" content="2016-06-20T07:50:24.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript高级程序设计第三章笔记">
-<meta name="twitter:description" content="ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型
-基本数据类型:Number,Null,Undefined,Boolean,String
-Number类型可以表示所有数值
-最大值:Number.MAX_VALUE
-最小值:Number.MIN_VALUE
-如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity
-1234 co">
+<meta name="twitter:title" content="jQuery 随手记">
+<meta name="twitter:description" content="删除节点的方法
+remove()方法
+当使用remove()方法删除某个节点时,该节点所包含的所有后代节
+点将同时被删除,方法的返回值是一个指向被删除节点的引用,所以,
+可以在以后再使用这些元素
+
+detach()方法
+与remove()方法相同点:都是从DOM中去掉匹配的元素,并且将来可以再使用这些元素
+不同点:重新使用删除的元素时,之前绑定的事件还在,但是使用remove()方法删除元素则会使">
 
 
 
@@ -125,7 +131,7 @@ Number类型可以表示所有数值
   };
 </script>
 
-  <title> JavaScript高级程序设计第三章笔记 | Chenwei Zhao's blog </title>
+  <title> jQuery 随手记 | Chenwei Zhao's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -245,7 +251,7 @@ Number类型可以表示所有数值
             
             
               
-                JavaScript高级程序设计第三章笔记
+                jQuery 随手记
               
             
           </h1>
@@ -257,8 +263,8 @@ Number类型可以表示所有数值
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-29T10:48:30+08:00" content="2016-04-29">
-              2016-04-29
+            <time itemprop="dateCreated" datetime="2016-06-20T10:00:01+08:00" content="2016-06-20">
+              2016-06-20
             </time>
           </span>
 
@@ -284,50 +290,34 @@ Number类型可以表示所有数值
       
 
       
-        <p>ES5中有5中基本数据类型(简单数据类型)和1种复杂数据类型</p>
-<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型:"></a>基本数据类型:</h2><p>Number,Null,Undefined,Boolean,String</p>
-<p>Number类型可以表示所有数值</p>
-<p>最大值:Number.MAX_VALUE</p>
-<p>最小值:Number.MIN_VALUE</p>
-<p>如果超过这个数值范围,并且这个数是正数,将被自动转换成Infinity,如果是负数,将被自动转换成-Infinity</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> console.log(Number.MAX_VALUE);//1.7976931348623157e+308</span><br><span class="line">console.log(Number.MIN_VALUE);//5e-324</span><br><span class="line"> var result=Number.MAX_VALUE+Number.MAX_VALUE;</span><br><span class="line"> console.log(&quot;Number.MAX_VALUE+Number.MAX_VALUE:   &quot;+result);//Infinity</span><br></pre></td></tr></table></figure>
-<p>可以使用isFinite()函数确定一个数是不是有穷的</p>
-<p>另外,ES6还引入了两个常量</p>
-<p>Number.MIN_SAFE_INTEGER</p>
-<p>Number.MAX_SAFE_INTEGER</p>
-<p>分别表示-2^53+1和2^53-1</p>
-<p>JavaScript内置的最大的整数是2的53次方</p>
-<p>所以这两个常量代表的是安全的最大整数和安全的最小整数</p>
-<pre><code>console.log(Number.MIN_SAFE_INTEGER);
-console.log(Number.MAX_SAFE_INTEGER);
-</code></pre><h2 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型:"></a>复杂数据类型:</h2><p>Object</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>ES中没有函数签名的概念,因为函数参数是以一个包含零个或多个值的数组的形式传递的</p>
-<p>在函数体内可以通过arguments对象来访问参数数组</p>
-<p>arguments的值永远与对应命名参数的值保持同步</p>
-<pre><code>function doAdd(num1,num2){
-    arguments[1]=10;//arguments[1]被赋值为10,同时num2的值变为10
-    console.log(arguments[0]+num2);
-}
-doAdd(1,2);//11
-</code></pre><p>arguments对象的长度是由传入的参数个数决定的,不是由定义函数时的命名参数个数决定的</p>
-<pre><code>function doAdd(num1){
-    arguments[1]=10;
-    console.log(arguments[0]+arguments[1]);
-}
-doAdd(2);//12
-</code></pre><p>即使只在参数列表里定义了一个num1,也可以通过arguments对象设置更多的参数</p>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>ES中不能像Java那样实现重载,如果定义了两个名字相同的函数,则该名字只属于后定义的函数</p>
-<p>但是可以通过如下方式模仿方法的重载</p>
-<pre><code>function doAdd(){
-    if(arguments.length==1){
-        console.log(&quot;只有一个参数&quot;);
-    }else if(arguments.length==2){
-        console.log(&quot;有两个参数&quot;);
-    }else{
-        console.log(&quot;不知道有多少个参数&quot;);
-    }
-}
-</code></pre>
+        <h2 id="删除节点的方法"><a href="#删除节点的方法" class="headerlink" title="删除节点的方法"></a>删除节点的方法</h2><ul>
+<li><p>remove()方法</p>
+<p>当使用remove()方法删除某个节点时,该节点所包含的所有后代节</p>
+<p>点将同时被删除,方法的返回值是一个指向被删除节点的引用,所以,</p>
+<p>可以在以后再使用这些元素</p>
+</li>
+<li><p>detach()方法</p>
+<p>与remove()方法相同点:都是从DOM中去掉匹配的元素,并且将来可以再使用这些元素</p>
+<p>不同点:重新使用删除的元素时,之前绑定的事件还在,但是使用remove()方法删除元素则会使之前绑定的事件失效</p>
+</li>
+</ul>
+<ul>
+<li><p>empty()方法</p>
+<p>empty()方法清空元素中的所有后代节点</p>
+</li>
+</ul>
+<h2 id="复制节点"><a href="#复制节点" class="headerlink" title="复制节点"></a>复制节点</h2><p>使用clone()方法可以复制节点,但是被复制的新元素不具有任何行为</p>
+<p>如果想复制元素的同时复制元素所绑定的事件,可以向clone()方法中传递一个参数true</p>
+<pre><code>$(this).clone(true).appendTo(&apos;body&apos;);
+</code></pre><h2 id="遍历节点"><a href="#遍历节点" class="headerlink" title="遍历节点"></a>遍历节点</h2><p>parent(),parents(),closest()方法的区别</p>
+<p>parent()方法返回指定元素的直接父节点</p>
+<p>parents()方法返回匹配的多个父节点</p>
+<p>closest()方法从自身开始,返回最先匹配的祖先节点</p>
+<h2 id="CSS-DOM操作"><a href="#CSS-DOM操作" class="headerlink" title="CSS-DOM操作"></a>CSS-DOM操作</h2><p>可以通过$(element).css(“height”)和$(element).height()方法获得元素的height属性;</p>
+<p>二者的区别是:</p>
+<p>css()方法获取的高度值和样式的设置有关,可能会得到”auto”</p>
+<p>height()方法获取的高度值是元素在页面中的实际高度,并且不带单位</p>
+
       
     </div>
     
@@ -347,7 +337,7 @@ doAdd(2);//12
       
         <div class="post-tags">
           
-            <a href="/tags/高程笔记/" rel="tag">#高程笔记</a>
+            <a href="/tags/锋利的jQuery笔记/" rel="tag">#锋利的jQuery笔记</a>
           
         </div>
       
@@ -356,17 +346,13 @@ doAdd(2);//12
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/28/JavaScript高级程序设计第五章笔记/" rel="next" title="JavaScript高级程序设计第五章笔记">
-                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第五章笔记
+              <a href="/2016/06/15/require-js-入门/" rel="next" title="require.js 入门">
+                <i class="fa fa-chevron-left"></i> require.js 入门
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/06/JavaScript高级程序设计第六章笔记/" rel="prev" title="JavaScript高级程序设计第六章笔记">
-                JavaScript高级程序设计第六章笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +461,7 @@ doAdd(2);//12
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂数据类型"><span class="nav-number">2.</span> <span class="nav-text">复杂数据类型:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数重载"><span class="nav-number">4.</span> <span class="nav-text">函数重载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除节点的方法"><span class="nav-number">1.</span> <span class="nav-text">删除节点的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制节点"><span class="nav-number">2.</span> <span class="nav-text">复制节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历节点"><span class="nav-number">3.</span> <span class="nav-text">遍历节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-DOM操作"><span class="nav-number">4.</span> <span class="nav-text">CSS-DOM操作</span></a></li></ol></div>
             
           </div>
         </section>

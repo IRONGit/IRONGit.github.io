@@ -229,6 +229,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/20/jQuery-随手记/" itemprop="url">
+                  jQuery 随手记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-20T10:00:01+08:00" content="2016-06-20">
+              2016-06-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="删除节点的方法"><a href="#删除节点的方法" class="headerlink" title="删除节点的方法"></a>删除节点的方法</h2><ul>
+<li><p>remove()方法</p>
+<p>当使用remove()方法删除某个节点时,该节点所包含的所有后代节</p>
+<p>点将同时被删除,方法的返回值是一个指向被删除节点的引用,所以,</p>
+<p>可以在以后再使用这些元素</p>
+</li>
+<li><p>detach()方法</p>
+<p>与remove()方法相同点:都是从DOM中去掉匹配的元素,并且将来可以再使用这些元素</p>
+<p>不同点:重新使用删除的元素时,之前绑定的事件还在,但是使用remove()方法删除元素则会使之前绑定的事件失效</p>
+</li>
+</ul>
+<ul>
+<li><p>empty()方法</p>
+<p>empty()方法清空元素中的所有后代节点</p>
+</li>
+</ul>
+<h2 id="复制节点"><a href="#复制节点" class="headerlink" title="复制节点"></a>复制节点</h2><p>使用clone()方法可以复制节点,但是被复制的新元素不具有任何行为</p>
+<p>如果想复制元素的同时复制元素所绑定的事件,可以向clone()方法中传递一个参数true</p>
+<pre><code>$(this).clone(true).appendTo(&apos;body&apos;);
+</code></pre><h2 id="遍历节点"><a href="#遍历节点" class="headerlink" title="遍历节点"></a>遍历节点</h2><p>parent(),parents(),closest()方法的区别</p>
+<p>parent()方法返回指定元素的直接父节点</p>
+<p>parents()方法返回匹配的多个父节点</p>
+<p>closest()方法从自身开始,返回最先匹配的祖先节点</p>
+<h2 id="CSS-DOM操作"><a href="#CSS-DOM操作" class="headerlink" title="CSS-DOM操作"></a>CSS-DOM操作</h2><p>可以通过$(element).css(“height”)和$(element).height()方法获得元素的height属性;</p>
+<p>二者的区别是:</p>
+<p>css()方法获取的高度值和样式的设置有关,可能会得到”auto”</p>
+<p>height()方法获取的高度值是元素在页面中的实际高度,并且不带单位</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/15/require-js-入门/" itemprop="url">
                   require.js 入门
                 </a>
@@ -2390,7 +2509,7 @@ alert(num.toExponential(1));//1.0e+1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2400,7 +2519,7 @@ alert(num.toExponential(1));//1.0e+1
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
