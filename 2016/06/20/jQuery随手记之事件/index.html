@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="锋利的jQuery笔记," />
 
 
 
@@ -80,16 +80,46 @@
 
 
 
-<meta name="description" content="今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟具体请看">
+<meta name="description" content="事件绑定$(element).bind(&amp;quot;click&amp;quot;,function(){
+
+});
+
+$(element).mouseover(function(){
+
+}).mouseout(function(){
+
+});
+合成事件//hover()模拟光标悬停事件,当光标移到元素上时,会触发第一个函数,移出元素时,会触发第二个函数
+$(element).hover(enter,ou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="慕课网上的倒计时效果">
-<meta property="og:url" content="http://yoursite.com/2016/05/29/跟着慕课网教程做的时钟Demo/index.html">
+<meta property="og:title" content="jQuery随手记之事件">
+<meta property="og:url" content="http://yoursite.com/2016/06/20/jQuery随手记之事件/index.html">
 <meta property="og:site_name" content="Chenwei Zhao's blog">
-<meta property="og:description" content="今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟具体请看">
-<meta property="og:updated_time" content="2016-05-29T14:17:45.543Z">
+<meta property="og:description" content="事件绑定$(element).bind(&amp;quot;click&amp;quot;,function(){
+
+});
+
+$(element).mouseover(function(){
+
+}).mouseout(function(){
+
+});
+合成事件//hover()模拟光标悬停事件,当光标移到元素上时,会触发第一个函数,移出元素时,会触发第二个函数
+$(element).hover(enter,ou">
+<meta property="og:updated_time" content="2016-06-20T12:15:24.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="慕课网上的倒计时效果">
-<meta name="twitter:description" content="今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟具体请看">
+<meta name="twitter:title" content="jQuery随手记之事件">
+<meta name="twitter:description" content="事件绑定$(element).bind(&amp;quot;click&amp;quot;,function(){
+
+});
+
+$(element).mouseover(function(){
+
+}).mouseout(function(){
+
+});
+合成事件//hover()模拟光标悬停事件,当光标移到元素上时,会触发第一个函数,移出元素时,会触发第二个函数
+$(element).hover(enter,ou">
 
 
 
@@ -107,7 +137,7 @@
   };
 </script>
 
-  <title> 慕课网上的倒计时效果 | Chenwei Zhao's blog </title>
+  <title> jQuery随手记之事件 | Chenwei Zhao's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -227,7 +257,7 @@
             
             
               
-                慕课网上的倒计时效果
+                jQuery随手记之事件
               
             
           </h1>
@@ -239,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T22:05:21+08:00" content="2016-05-29">
-              2016-05-29
+            <time itemprop="dateCreated" datetime="2016-06-20T16:39:11+08:00" content="2016-06-20">
+              2016-06-20
             </time>
           </span>
 
@@ -266,7 +296,39 @@
       
 
       
-        <h1 id="今天照着慕课网上的倒计时效果教程做了一下-不过不是倒计时-是时钟"><a href="#今天照着慕课网上的倒计时效果教程做了一下-不过不是倒计时-是时钟" class="headerlink" title="今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟"></a>今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟</h1><p><a href="http://irongit.github.io/countdown.html" target="_blank" rel="external">具体请看</a></p>
+        <h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><pre><code>$(element).bind(&quot;click&quot;,function(){
+
+});
+
+$(element).mouseover(function(){
+
+}).mouseout(function(){
+
+});
+</code></pre><h2 id="合成事件"><a href="#合成事件" class="headerlink" title="合成事件"></a>合成事件</h2><pre><code>//hover()模拟光标悬停事件,当光标移到元素上时,会触发第一个函数,移出元素时,会触发第二个函数
+$(element).hover(enter,out);
+</code></pre><p>需要注意的是,hover()方法准确来说是替代bind(“mouseenter”)和bind(“mouseleave”)方法</p>
+<p>另外,JavaScript中onmouseout事件和onmouseleave事件的区别是:当光标离开目标元素,但进入目标元素的子元素时,会触发onmouseout事件,当光标离开目标元素并且也不在其子元素中时,会触发onmouseleave事件</p>
+<p>同样,对应的onmouseover和onmouseenter事件的区别是:当光标进入目标元素时或者进入目标元素的子元素时,都会触发onmouseover事件,<br>当光标进入目标元素时,触发onmouseenter事件</p>
+<h3 id="bind-delegate和on"><a href="#bind-delegate和on" class="headerlink" title="bind,delegate和on"></a>bind,delegate和on</h3><p>以下是用法:</p>
+<pre><code>$(&apos;.pargra&apos;).bind(&quot;click&quot;,function(){
+          alert($(this).text());
+      });
+
+$(&apos;.p-outer&apos;).delegate(&apos;p&apos;,&apos;click&apos;,function(){
+  alert($(this).text());
+});
+
+$(&apos;.p-outer&apos;).on(&apos;click&apos;,&apos;p&apos;,function(){
+  alert($(this).text());
+});
+</code></pre><p>其中,bind方法有两个不足</p>
+<p>  &#160; &#160; &#160; &#160;1.当匹配的元素特别多的时候,会影响到性能,因为这里用了隐式迭代的方法</p>
+<p>  &#160; &#160; &#160; &#160;2.bind方法对尚未存在的元素无法绑定</p>
+<p>&#160; &#160; &#160; &#160;而delegate方法使用了事件委托的机制,不用为每个p标签绑定事件,只需要为其父元素绑定事件,然后由于事件冒泡,匹配到目标元素,触发事件。</p>
+<p>&#160; &#160; &#160; &#160;delegate()方法也有缺点,如果目标元素在DOM中层次太深,会影响到性能</p>
+<p>&#160; &#160; &#160; &#160;无论是bind()方法还是delegate()方法,都是基于on()方法实现的,只是参数不同</p>
+<p>&#160; &#160; &#160; &#160;关于bind,delegate和on这部分参考了网上的一篇很好的文章:<a href="http://www.jb51.net/article/67166.htm" target="_blank" rel="external">jQuery事件绑定on()、bind()与delegate() 方法详解<em>jquery</em>脚本之家</a></p>
 
       
     </div>
@@ -285,22 +347,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/锋利的jQuery笔记/" rel="tag">#锋利的jQuery笔记</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/13/JavaScript高级程序设计第十一章笔记/" rel="next" title="JavaScript高级程序设计第十一章笔记">
-                <i class="fa fa-chevron-left"></i> JavaScript高级程序设计第十一章笔记
+              <a href="/2016/06/20/jQuery-随手记/" rel="next" title="jQuery 随手记">
+                <i class="fa fa-chevron-left"></i> jQuery 随手记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/box-shadow实现边框/" rel="prev" title="box-shadow实现边框">
-                box-shadow实现边框 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,7 +473,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#今天照着慕课网上的倒计时效果教程做了一下-不过不是倒计时-是时钟"><span class="nav-number">1.</span> <span class="nav-text">今天照着慕课网上的倒计时效果教程做了一下~~~不过不是倒计时,是时钟</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">1.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合成事件"><span class="nav-number">2.</span> <span class="nav-text">合成事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bind-delegate和on"><span class="nav-number">2.1.</span> <span class="nav-text">bind,delegate和on</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

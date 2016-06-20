@@ -229,6 +229,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/20/jQuery随手记之事件/" itemprop="url">
+                  jQuery随手记之事件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-20T16:39:11+08:00" content="2016-06-20">
+              2016-06-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><pre><code>$(element).bind(&quot;click&quot;,function(){
+
+});
+
+$(element).mouseover(function(){
+
+}).mouseout(function(){
+
+});
+</code></pre><h2 id="合成事件"><a href="#合成事件" class="headerlink" title="合成事件"></a>合成事件</h2><pre><code>//hover()模拟光标悬停事件,当光标移到元素上时,会触发第一个函数,移出元素时,会触发第二个函数
+$(element).hover(enter,out);
+</code></pre><p>需要注意的是,hover()方法准确来说是替代bind(“mouseenter”)和bind(“mouseleave”)方法</p>
+<p>另外,JavaScript中onmouseout事件和onmouseleave事件的区别是:当光标离开目标元素,但进入目标元素的子元素时,会触发onmouseout事件,当光标离开目标元素并且也不在其子元素中时,会触发onmouseleave事件</p>
+<p>同样,对应的onmouseover和onmouseenter事件的区别是:当光标进入目标元素时或者进入目标元素的子元素时,都会触发onmouseover事件,<br>当光标进入目标元素时,触发onmouseenter事件</p>
+<h3 id="bind-delegate和on"><a href="#bind-delegate和on" class="headerlink" title="bind,delegate和on"></a>bind,delegate和on</h3><p>以下是用法:</p>
+<pre><code>$(&apos;.pargra&apos;).bind(&quot;click&quot;,function(){
+          alert($(this).text());
+      });
+
+$(&apos;.p-outer&apos;).delegate(&apos;p&apos;,&apos;click&apos;,function(){
+  alert($(this).text());
+});
+
+$(&apos;.p-outer&apos;).on(&apos;click&apos;,&apos;p&apos;,function(){
+  alert($(this).text());
+});
+</code></pre><p>其中,bind方法有两个不足</p>
+<p>  &#160; &#160; &#160; &#160;1.当匹配的元素特别多的时候,会影响到性能,因为这里用了隐式迭代的方法</p>
+<p>  &#160; &#160; &#160; &#160;2.bind方法对尚未存在的元素无法绑定</p>
+<p>&#160; &#160; &#160; &#160;而delegate方法使用了事件委托的机制,不用为每个p标签绑定事件,只需要为其父元素绑定事件,然后由于事件冒泡,匹配到目标元素,触发事件。</p>
+<p>&#160; &#160; &#160; &#160;delegate()方法也有缺点,如果目标元素在DOM中层次太深,会影响到性能</p>
+<p>&#160; &#160; &#160; &#160;无论是bind()方法还是delegate()方法,都是基于on()方法实现的,只是参数不同</p>
+<p>&#160; &#160; &#160; &#160;关于bind,delegate和on这部分参考了网上的一篇很好的文章:<a href="http://www.jb51.net/article/67166.htm" target="_blank" rel="external">jQuery事件绑定on()、bind()与delegate() 方法详解<em>jquery</em>脚本之家</a></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/20/jQuery-随手记/" itemprop="url">
                   jQuery 随手记
                 </a>
@@ -2032,445 +2157,13 @@ doAdd(2);//12
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/28/JavaScript高级程序设计第五章笔记/" itemprop="url">
-                  JavaScript高级程序设计第五章笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-28T21:14:05+08:00" content="2016-04-28">
-              2016-04-28
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第五章-引用类型"><a href="#第五章-引用类型" class="headerlink" title="第五章 引用类型"></a>第五章 引用类型</h1><h2 id="Object类型"><a href="#Object类型" class="headerlink" title="Object类型"></a>Object类型</h2><h2 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h2><p>Array类型有两种创建方式</p>
-<p>1.Array构造函数</p>
-<p>2.数组字面量</p>
-<pre><code>var colors=[&quot;red&quot;,&quot;white&quot;];
-alert(colors[0]);//red
-alert(colors[2]);//undefined
-</code></pre><p>数组的length属性可以被修改</p>
-<p>因此改变length可以移除数组末尾的元素或者添加新的元素</p>
-<pre><code>//移除末尾元素
-colors.length=1;
-alert(colors[1]);//undefined
-//添加新的元素
-colors[colors.length]=&quot;green&quot;;
-colors[colors.length]=&quot;black&quot;;
-alert(colors[1]);
-alert(colors[2]);
-</code></pre><p>数组的长度有限制,如果超过上限值,会发生异常,如果创建的数初始大小与上限值接近,可<br>能会导致运行时间超长的脚本错误</p>
-<h3 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h3><p>要想检测某个值是不是数组,推荐使用ES5中新增的isArray()方法,目前IE9+,FireFox 4+,Safari 5+ Opera 10.5+ Chrome中都支持这个方法</p>
-<h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><p>数组的toString()方法返回的是由数组中的每个值的字符串形式拼接,以逗号分隔的字符串<br>valueOf()方法返回的是数组</p>
-<p>ES中的数组具有类似于栈和队列的方法</p>
-<h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><p>push():向数组末尾添加元素并返回长度</p>
-<p>pop():移除数组末尾最后一项</p>
-<h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><p>shift():移除数组的第一项并返回长度</p>
-<p>unshift():在数组前端添加任意个项并返回新数组的长度</p>
-<pre><code>var colors=new Array(&quot;white&quot;);
-var count=colors.unshift(&quot;red&quot;,&quot;green&quot;);
-alert(colors);//red,green,white
-colors.unshift(&quot;black&quot;);//black,red,green,white
-</code></pre><p>结合shift()方法和push()方法可以模拟队列</p>
-<p>结合unshift()和pop()方法可以从相反的方向模拟队列</p>
-<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><p>数组有两个方法可以用来重排序一个是reverse(),一个是sort(),两个方法的返回值都是排序后的数组</p>
-<p>reverse()就是把数组反转</p>
-<p>需要注意的是,sort()方法在执行时会调用每项的toString()方法,然后比较得到的字符串</p>
-<p>所以,如下代码的结果应该是 0,1,10,15,5</p>
-<pre><code>var values=[0,1,5,10,15];
-values.sort();
-alert(values);//0,1,10,15,5
-</code></pre><p>不过,sort()函数可以接收一个比较函数作为参数,以此来决定哪个值在前哪个值在后</p>
-<pre><code>function compare(value1,value2){
-    if(value1&lt;value2){
-        return -1;
-    }else if(value1&gt;value2){
-        return 1;
-    }else{
-        return 0;
-    }
-}
-</code></pre><p>比较函数接收两个参数,通过返回一个数值来影响排序结果,如果第一个参数在第二个参数前,返回一个负数,如果第一个参数在第二个参数后,返回一个正数,相等则返回0</p>
-<pre><code>var values=[0,1,10,5,15];
-values.sort(compare);
-alert(values);//0,1,5,10,15
-</code></pre><h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><p>concat():</p>
-<p>首先创建一个数组的副本,然后将参数添加到副本的末尾,最后返回新数组</p>
-<p>slice():</p>
-<p>例:</p>
-<p>slice(1)</p>
-<p>返回数组位置1到数组末尾的所有项</p>
-<p>slice(1,4)</p>
-<p>返回数组位置1到位置3的所有项(左闭右开)</p>
-<p>参数存在负数的情况:</p>
-<p>在一个长度为5的数组中</p>
-<p>slice(-2,-1)与slice(3,4)相同,如果结束位置小于起始位置,返回空数组</p>
-<p>splice():</p>
-<p>splice()函数可以在数组中实现删除,插入和替换的功能</p>
-<p>返回值是一个数组,数组中包含从原始数组中删除的项(删除项数为0则返回空数组)</p>
-<p>splice()的第一个参数表示起始位置,第二个参数表示要删除的项数</p>
-<p>比如splice(0,1);表示从数组的位置0开始,删除一项</p>
-<p>splice(1,0,”yellow”,”orange”)</p>
-<p>表示从数组的位置1开始删除0项,并从位置1开始插入”yellow”,”orange”两项</p>
-<p>splice(1,1,”red”,”purple”)</p>
-<p>表示从数组的位置1开始删除一项,并从位置一开始插入”red”,”purple”两项</p>
-<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><p>every()和some()都用于查询数组中的项是否满足某个条件</p>
-<p>必须所有项都返回true,every()才返回true</p>
-<p>只要有一项返回true,some()就返回true</p>
-<pre><code>var numbers=[1,2,3,4,5,4,3,2,1];
-
-var everyResult=numbers.every(function(item,index,array){
-        return (item&gt;2);
-});
-
-alert(everyResult);//false
-
-
-var someResult=numbers.some(function(item,index,array){
-        return (item&gt;2);
-});
-
-alert(someResult);//true
-</code></pre><p>filter()用于查询符合条件的所有项</p>
-<pre><code>var numbers=[1,2,3,4,5,4,3,2,1,4];
-
-var filterResult=numbers.filter(function(item,index,array){
-        return (item&gt;2);
-});
-
-alert(filterResult);
-</code></pre><p>map()用于创建一个与原数组的项一一对应的数组</p>
-<pre><code>var numbers=[1,2,3,4,5,4,3,2,1,4];
-var mapResult=numbers.map(function(item,index,array){
-        return item*2;
-});
-</code></pre><p>forEach()方法没有返回值;</p>
-<pre><code>var numbers=[1,2,3,4,5,4,3,2,1];
-numbers.forEach(function(item,index,array){
-        alert(numbers[index]);
-});
-</code></pre><h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><p>ES5新增了两个归并方法:</p>
-<p>reduce()和reduceRight()</p>
-<p>感觉在这本书上对这两个方法的描述不太清楚,但是看书还是能看懂的,后来查了一下,在MSDN上找到了一个不错的解释</p>
-<blockquote>
-<p>array1.reduce(callbackfn[, initialValue])</p>
-<p>对数组中的所有元素调用指定的回调函数。该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供</p>
-</blockquote>
-<pre><code>var values=[1,2,3,4,5];
-var sum=values.reduce(function(prev,cur,index,array){
-        return prev+cur;
-},5);
-
-alert(sum);//20
-
-
-//MSDN的示例
-
-function Process(prev,cur){
-    var nextArr;
-    if(cur&lt;=10&amp;&amp;cur&gt;=1){
-        nextArr=prev.concat(cur);
-    }else{
-        nextArr=prev;
-    }
-    return nextArr;
-}
-
-
-    var numbers = [20, 1, -5, 6, 50, 3];
-    var emptyArray=new Array();
-    var resultArray=numbers.reduce(Process,emptyArray);
-
-    alert(resultArray);//1,6
-</code></pre><p>prev代表前一个值,cur代表当前的值,index代表项的索引,array代表数组对象</p>
-<p>需要注意的是,在第一次迭代时,prev参数是数组的第一项,cur是数组的第二项,</p>
-<p>也就是说迭代是从数组的第二项开始的</p>
-<h2 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h2><p>有三个方法<br>        Date.parse();<br>        Date.UTC();<br>        Date.now();<br>        其中Date.now()是ES5新增的方法<br>        在不支持Date.now()方法的浏览器中,使用+操作符可以获取Date对象的时间戳</p>
-<h2 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h2><blockquote>
-<p>说起来ECMAScript中什么最有意思,我想那莫过于函数了-而有意思的根源,则在于函数实际上是对象</p>
-</blockquote>
-<p>一个函数可以被当做参数传递给另一个函数,也可以被另一个函数当做函数的结果返回</p>
-<pre><code>function callSomeFunction(someFunction,someArguments){
-    return someFunction(someArguments);
-}
-
-function add10(num){
-    return num+10;
-}
-
-var result1=callSomeFunction(add10,10);
-alert(result1);
-</code></pre><p>给对象数组排序(根据对象的属性)</p>
-<pre><code>function createComparisonFunction(propertyName){
-    return function comparisonFunction(obj1,obj2){
-        var val1=obj1[propertyName];
-        var val2=obj2[propertyName];
-        if(val1&lt;val2){
-            return -1;
-        }else if(val1&gt;val2){
-            return 1;
-        }else{
-            return 0;
-        }
-    }
-}
-var data=[{name:&quot;Zachary&quot;,age:28},{name:&quot;Nicholas&quot;,age:29}];
-data.sort(createComparisonFunction(&quot;name&quot;));
-console.log(data);
-data.sort(createComparisonFunction(&quot;age&quot;));
-console.log(data);
-</code></pre><h3 id="函数内部的arguments对象"><a href="#函数内部的arguments对象" class="headerlink" title="函数内部的arguments对象"></a>函数内部的arguments对象</h3><p>每个函数内部都有一个arguments对象,主要功能是保存函数参数</p>
-<p>但是这个对象还有一个属性callee,这个属性是一个指针,指向拥有这个arguments对象的</p>
-<p>函数</p>
-<pre><code>//阶乘
-function factorial(num){
-    if(num&lt;=1){
-        return 1;
-    }else{
-        return num*arguments.callee(num-1);
-    }
-}
-</code></pre><p>函数内部的this对象<br>        var color=”red”;<br>        var sayColor=function(){<br>            this.color=”blue”;<br>            alert(this.color);<br>        }<br>        sayColor();</p>
-<p>caller属性保存着调用当前函数的函数的引用</p>
-<p>如果在全局作用域中调用当前函数,caller的值为null</p>
-<pre><code>function outer(){
-    inner();
-}
-
-function inner(){
-    alert(arguments.callee.caller);
-}
-
-outer();//显示outer函数的源代码
-
-inner();//显示null
-
-/*hidden*/
-(function (n){
-    if(n&lt;=1) return 1;
-    return n*arguments.callee(n-1);
-})(10);
-</code></pre><h3 id="函数的属性和方法"><a href="#函数的属性和方法" class="headerlink" title="函数的属性和方法"></a>函数的属性和方法</h3><p>函数也是对象,所以函数也有属性和方法,</p>
-<p>每个函数都有两个属性:prototype和length</p>
-<p>length表示接收的命名参数的个数</p>
-<pre><code>function sayName(name){
-    arguments[1]=4;
-    alert(name);
-}
-alert(sayName.length);//1
-</code></pre><p>prototype属性//链接到第六章待更新</p>
-<p>每个函数也都包含两个非继承而来的方法:apply()和call()</p>
-<p>两个方法的功能一样,不同点在于传入的参数不同</p>
-<p>apply()方法和call()方法的第一个参数都是this,代表当前作用域</p>
-<p>apply()的第二个参数可以是arguments对象,也可以是Array的实例</p>
-<p>但是在使用call()时,传递的参数必须依次列举出来</p>
-<pre><code>function sum(num1,num2){
-    return num1+num2;
-}
-
-function callSum1(num1,num2){
-    return sum.apply(this,arguments);
-}
-
-
-function callSum2(num1,num2){
-    return sum.apply(this,[num1,num2]);
-}
-
-function callSum3(num1,num2){
-    return sum.call(this,num1,num2);
-}
-</code></pre><p>apply()和call()方法最大的作用是扩充函数的作用域</p>
-<pre><code>var color=&quot;red&quot;;
-var o={color:&quot;blue&quot;};
-function sayColor(){
-    alert(this.color);
-}
-sayColor();
-sayColor.call(this);//red
-sayColor.call(o);//blue
-sayColor.call(window);//red
-</code></pre><p>这样做的最大好处就是解除了对象o和sayColor函数的耦合关系</p>
-<p>不需要像之前那样写o.sayColor=sayColor了</p>
-<p>ES5还有一种方法bind()</p>
-<p>bind()函数接收一个对象,创建一个函数的实例,实例的this值被绑定给对象</p>
-<pre><code>window.color=&quot;red&quot;;
-var o={color:&quot;blue&quot;};
-var obj={color:&quot;black&quot;};
-function sayColor(){
-    alert(this.color);
-}
-var objSayColor=sayColor.bind(o);
-objSayColor();//blue
-var objSayColor1=sayColor.bind(obj);
-objSayColor1();//black
-</code></pre><h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><h3 id="创建正则表达式的两种方式"><a href="#创建正则表达式的两种方式" class="headerlink" title="创建正则表达式的两种方式"></a>创建正则表达式的两种方式</h3><h4 id="1-使用字面量形式"><a href="#1-使用字面量形式" class="headerlink" title="1.使用字面量形式"></a>1.使用字面量形式</h4><pre><code>var expression= / pattern / flags;
-</code></pre><p>例如:</p>
-<pre><code>var pattern1=/at/g
-</code></pre><p>匹配字符串中所有”at”的实例</p>
-<p>每个正则表达式都可以带有一个或多个flags</p>
-<p>g:表示全局(global)模式</p>
-<p>i:表示不区分大小写(case-insensitive)模式</p>
-<p>m:表示多行模式(multiline)模式</p>
-<h4 id="2-使用RegExp构造函数"><a href="#2-使用RegExp构造函数" class="headerlink" title="2.使用RegExp构造函数"></a>2.使用RegExp构造函数</h4><pre><code>var pattern2=new RegExp(&quot;cat&quot;,g);
-</code></pre><h3 id="两种方式的对比"><a href="#两种方式的对比" class="headerlink" title="两种方式的对比"></a>两种方式的对比</h3><p>在ES3中,正则表达式字面量始终会共享同一个RegExp实例,而使用构造函数创建的<br>每一个新RegExp实例都是一个新实例</p>
-<p>在下面第一个循环中,只为/cat/创建了一个实例,所以在循环中再次调用test()会失败<br>,因为在第一次调用test()之后,找到了”cat”,第二次调用就会从索引为3的字符开始,<br>所以找不到</p>
-<p>但是在ES5中,使用正则表达式字面量和直接调用RegExp一样,每次都创建新的RegExp实例</p>
-<pre><code>var re=null,i;
-for(i=0;i&lt;10;i++){
-    re=/cat/g;
-    console.log(re.test(&quot;catestrophe&quot;));
-}
-
-for(i=0;i&lt;10;i++){
-    re=new RegExp(&quot;cat&quot;,g);
-    console.log(re.test(&quot;catestrophe&quot;));
-}
-</code></pre><h3 id="RegExp实例属性"><a href="#RegExp实例属性" class="headerlink" title="RegExp实例属性"></a>RegExp实例属性</h3><p>RegExp的每个实例都有如下几个属性:<br>1.global</p>
-<p>2.ignoreCase</p>
-<p>3.lastIndex</p>
-<p>4.multiline</p>
-<p>5.source</p>
-<p>其中lastIndex表示开始搜索下一个匹配项的字符位置</p>
-<p>source返回的是正则表达式的字面量形式</p>
-<h3 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h3><p>RegExp对象的主要方法是exec(),该方法接收一个参数,表示要匹配的字符串,返回的是一个数组,如果没有匹配项,返回null,如果有匹配项,数组存放的就是捕获组<br>返回的数组比Array实例多了两个属性,index和input,index表示匹配项在字符串中的位置,input表示传入的字符串</p>
-<pre><code>var text=&quot;mom and dad and baby&quot;;
-var pattern=/mom (and dad (and baby)?)?/gi;
-
-var matches=pattern.exec(text);
-console.log(matches.index);//0
-console.log(matches.input);//mom and dad and baby
-console.log(matches[0]);//mom and dad and baby
-console.log(matches[1]);//and dad and baby
-console.log(matches[2]);//and baby
-</code></pre><p>对exec()方法而言,如果在模式中设置了全局标志,在同一个字符串中调用多次会在字符串中继续查找新的匹配项<br>如果不设置,则每次调用始终返回第一个匹配项的信息</p>
-<pre><code>var text=&quot;cat,bat,sat,fat&quot;;
-var pattern1=/.at/;
-var matches=pattern1.exec(text);
-console.log(matches.index);//0
-console.log(matches[0]);//cat
-
-matches=pattern1.exec(text);
-console.log(matches.index);//0
-console.log(matches[0]);//cat
-
-var pattern2=/.at/g;
-
-
-var matches=pattern2.exec(text);
-console.log(matches.index);//0
-console.log(matches[0]);//cat
-
-matches=pattern2.exec(text);
-console.log(matches.index);//4
-console.log(matches[0]);//bat
-</code></pre><p>另一个方法是test(),接收一个字符串参数<br>如果只想知道目标字符串和模式是否匹配而不需要知道其他细节的情况下,一般使用这个方法</p>
-<p>RegExp实例继承的toLocalString()方法和toString()方法都会返回正则表达式的字面量</p>
-<h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><p>每当读取一个基本类型值的时候,后台会创建一个对应的基本包装类型的对象方便<br>数据操作</p>
-<p>操作基本类型值的语句执行完毕之后就立即销毁这个对象</p>
-<h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><pre><code>//创建Number对象可以通过Number构造函数
-var numberObj=new Number(10);
-</code></pre><p>valueOf()方法返回以基本类型表示的对象表示的数值</p>
-<p>toString()和toLocalString()方法返回字符串形式的数值</p>
-<p>可以向toString()传递一个参数表示基数</p>
-<pre><code>alert(typeof numberObj.valueOf());//number
-</code></pre><h4 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h4><p>toFixed()方法接收一个参数,表示小数点后的位数</p>
-<pre><code>var number=10;
-alert(number.toFixed(2));//10.00
-</code></pre><p>如果本身的位数多余参数指定的位数,则进行舍入</p>
-<pre><code>var number=10.005;
-alert(number.toFixed(2));//10.01
-</code></pre><p>toExponential()方法返回以指数表示法表示的数值的字符串形式</p>
-<pre><code>var num=10;
-alert(num.toExponential(1));//1.0e+1
-</code></pre><p>toPrecision()方法会根据要处理的数值决定调用toFixed()还是toExponential()</p>
-<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><p>String类型的每个实例都有一个length属性</p>
-<p>需要注意的是,即使是双字节字符也算一个字符</p>
-<pre><code>alert(&quot;哈哈&quot;.length);//2
-</code></pre>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2509,7 +2202,7 @@ alert(num.toExponential(1));//1.0e+1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
